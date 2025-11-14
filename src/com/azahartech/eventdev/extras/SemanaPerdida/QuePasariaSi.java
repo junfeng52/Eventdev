@@ -1,4 +1,4 @@
-package com.azahartech.eventdev.presentacion.Extras.SemanaPerdida;
+package com.azahartech.eventdev.extras.SemanaPerdida;
 
 public class QuePasariaSi {
     public static void main(String[] args) {

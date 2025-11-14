@@ -1,4 +1,9 @@
-package com.azahartech.eventdev.presentacion;
+package com.azahartech.eventdev.presentacion.old;
+
+import com.azahartech.eventdev.modelo.DetallePago;
+import com.azahartech.eventdev.modelo.Evento;
+import com.azahartech.eventdev.modelo.Recinto;
+import com.azahartech.eventdev.modelo.Usuario;
 
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
@@ -104,22 +109,26 @@ public class App {
         final DecimalFormat DF_ID = new DecimalFormat("000000");
 
         //Recinto
+        Recinto recinto;
         String recintoNombre;
         String recintoDirec;
         int recintoAforo;
 
         //Evento
+        Evento evento;
         String eventoNombre;
         double eventoPrecioBase;
         double eventoBeneficio;
 
         //Usuario
+        Usuario usuario;
         String usuarioNombre;
         String usuarioEmail;
         int usuarioEdad;
         boolean usuarioEsEstudiante;
 
         //Pago
+        DetallePago detallePago;
         String pagoTipoTarjeta;
         String pagoNumeroTarjeta;
 
@@ -344,6 +353,12 @@ public class App {
 
 
         if (compraValida) {
+
+            recinto = new Recinto(recintoNombre, recintoDirec, recintoAforo);
+            evento = new Evento(eventoNombre, eventoFecha, recinto);
+
+            usuario = new Usuario(usuarioNombre, usuarioEmail);
+            detallePago = new DetallePago(pagoTipoTarjeta, pagoNumeroTarjeta);
 
 
             guion1 = codigoReserva.indexOf("-");

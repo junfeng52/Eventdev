@@ -1,4 +1,4 @@
-package com.azahartech.eventdev.presentacion.Extras.Semana8;
+package com.azahartech.eventdev.extras.semana8;
 
 public class DiezVeces {
     public static void main(String[] args) {

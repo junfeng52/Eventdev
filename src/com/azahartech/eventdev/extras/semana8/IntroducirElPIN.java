@@ -1,4 +1,4 @@
-package com.azahartech.eventdev.presentacion.Extras.Semana8;
+package com.azahartech.eventdev.extras.semana8;
 
 import java.util.Scanner;
 public class IntroducirElPIN {
