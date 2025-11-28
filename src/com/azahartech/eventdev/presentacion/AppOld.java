@@ -22,7 +22,7 @@ import java.util.UUID;
  *
  * Esta clase sirve para pedirle al usuario los datos del evento.
  */
-public class App {
+public class AppOld {
     /**
      *  El metodo main ejecuta la interfaz.
      *
@@ -355,7 +355,7 @@ public class App {
         if (compraValida) {
 
             recinto = new Recinto(recintoNombre, recintoDirec, recintoAforo);
-            evento = new Evento(eventoNombre, eventoFecha, recinto);
+            evento = new Evento(eventoNombre, eventoFecha, recinto, 12);
 
             usuario = new Usuario(usuarioNombre, usuarioEmail);
             detallePago = new DetallePago(pagoTipoTarjeta, pagoNumeroTarjeta);
