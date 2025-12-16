@@ -48,15 +48,14 @@ public class App {
 
 
         } while (input != 0);
+        scanner.close();
     }
 
     private static void pedirDatos(String tipoEvento){
         Evento evento = new Evento();
         Recinto recintoDelEvento = new Recinto();
-        Usuario usuario = new Usuario();
 
         LocalDate fechaEvento;
-
 
         System.out.println("Dime el nombre del evento.");
         evento.cambiarNombre(scanner.nextLine());
