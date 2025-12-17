@@ -48,7 +48,7 @@ public class ServicioEvento {
         }
     }
 
-    //    public boolean añadirDestacado(Evento evento, int posicion){
+//    public boolean añadirDestacado(Evento evento, int posicion){
 //        if (posicion < 0 || posicion > 4){
 //            return false;
 //        }

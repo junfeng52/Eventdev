@@ -88,8 +88,8 @@ public class App {
         switch (tipoEvento){
             case "Concierto":
                 System.out.println("Dime el nombre de la banda principal");
-                Concierto concierto = new Concierto(evento,scanner.nextLine());
-                concierto.mostrarInformacion();
+                evento = new Concierto(evento,scanner.nextLine());
+                evento.mostrarInformacion();
                 break;
 
             case "Partido":
@@ -102,8 +102,8 @@ public class App {
                 System.out.println("Dime el nombre del equipo visitante");
                 equipoVisitante = scanner.nextLine();
 
-                Partido partido = new Partido(evento, equipoLocal, equipoVisitante);
-                partido.mostrarInformacion();
+                evento = new Partido(evento, equipoLocal, equipoVisitante);
+                evento.mostrarInformacion();
                 break;
         }
 
