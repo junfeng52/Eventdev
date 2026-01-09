@@ -7,14 +7,16 @@ public class Usuario {
     private String nombreUsuario;
     private String email;
     private DetallePago detallePago;
+    private boolean vip;
 
 
     public Usuario(){}
 
-    public Usuario(String nombre, String email){
+    public Usuario(String nombre, String email, boolean vip){
         this.id = UUID.randomUUID().toString();
         this.nombreUsuario = nombre;
         this.email = email;
+        this.vip = vip;
     }
 
     public String consultarNombre(){
@@ -39,6 +41,15 @@ public class Usuario {
 
     public void cambiarDetallePago(DetallePago detallePago){
         this.detallePago = detallePago;
+    }
+
+
+    public boolean esVip() {
+        return this.vip;
+    }
+
+    public void cambiarVip(boolean vip) {
+        this.vip = vip;
     }
 
     public void mostrarInformacion(){

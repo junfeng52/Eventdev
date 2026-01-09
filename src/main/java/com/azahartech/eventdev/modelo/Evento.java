@@ -7,6 +7,7 @@ public class Evento {
     private LocalDate fecha;
     private Recinto recinto;
     private double precioEntrada;
+    private boolean benefico = false;
 
     public Evento(){}
 
@@ -15,6 +16,13 @@ public class Evento {
         this.fecha = fecha;
         this.recinto = recinto;
         this.precioEntrada = precioEntrada;
+    }
+    public Evento(String nombre, LocalDate fecha, Recinto recinto, double precioEntrada, boolean benefico){
+        this.nombre = nombre;
+        this.fecha = fecha;
+        this.recinto = recinto;
+        this.precioEntrada = precioEntrada;
+        this.benefico = benefico;
     }
 
     public void registrarVenta(){
@@ -51,6 +59,14 @@ public class Evento {
 
     public void cambiarPrecioEntrada(double precioEntrada){
         this.precioEntrada = precioEntrada;
+    }
+
+    public boolean esBenefico(){
+        return this.benefico;
+    }
+
+    public void cambiarBenefico(boolean benefico){
+        this.benefico = benefico;
     }
 
     public void mostrarInformacion(){

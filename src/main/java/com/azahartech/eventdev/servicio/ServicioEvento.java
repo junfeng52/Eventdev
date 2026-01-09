@@ -17,7 +17,7 @@ public class ServicioEvento {
 
     public ServicioEvento(){
         this.eventoDePrueba = new Evento("Evento", LocalDate.now(), new Recinto("recinto1", "direccion1", 90), 12);
-        this.usuarioDePrueba = new Usuario("Usuario", "a@a");
+        this.usuarioDePrueba = new Usuario("Usuario", "a@a", false);
         this.usuarioDePrueba.cambiarDetallePago(new DetallePago("visa", "1234"));
 //        this.listaEventos = new ArrayList<>();
     }
@@ -38,6 +38,20 @@ public class ServicioEvento {
             evento.mostrarInformacion();
         }
 
+    }
+
+    public Evento buscarEventoPorNombre(String nombre){
+        return repositorio.listar().stream().filter(evento -> evento.consultarNombre() == nombre).findFirst().orElse(null);
+    }
+
+    public ArrayList<Evento> obtenerEventosConAforoMayorA(int capacidad){
+        ArrayList<Evento> resultado = new ArrayList<>();
+        this.repositorio.listar().stream().filter(evento -> evento.consultarRecinto().consultarAforoMaximo() > capacidad).forEach(evento -> resultado.add(evento));
+        return resultado;
+    }
+
+    public long contarEventosBeneficos(){
+        return this.repositorio.listar().stream().filter(evento -> evento.esBenefico()).count();
     }
 
 //    public void eliminarEventosPasados(){

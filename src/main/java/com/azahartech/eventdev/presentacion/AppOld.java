@@ -357,7 +357,7 @@ public class AppOld {
             recinto = new Recinto(recintoNombre, recintoDirec, recintoAforo);
             evento = new Evento(eventoNombre, eventoFecha, recinto, 12);
 
-            usuario = new Usuario(usuarioNombre, usuarioEmail);
+            usuario = new Usuario(usuarioNombre, usuarioEmail, false);
             detallePago = new DetallePago(pagoTipoTarjeta, pagoNumeroTarjeta);
 
 

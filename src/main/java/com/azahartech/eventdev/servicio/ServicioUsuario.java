@@ -24,4 +24,8 @@ public class ServicioUsuario {
         return null;
     }
 
+    public void imprimirNombreUsuariosVip(){
+        this.repositorio.listar().stream().filter(usuario -> usuario.esVip()).map(usuario -> usuario.consultarNombre()).forEach(nombre -> System.out.println(nombre));
+    }
+
 }
