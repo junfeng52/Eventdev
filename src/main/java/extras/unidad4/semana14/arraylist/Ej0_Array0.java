@@ -1,6 +1,6 @@
-package extras.unidad4.semana14.arrays;
+package extras.unidad4.semana14.arraylist;
 
-public class EjercicioArray0 {
+public class Ej0_Array0 {
     public static void main(String[] args) {
         int[] numeros = new int[10];
 

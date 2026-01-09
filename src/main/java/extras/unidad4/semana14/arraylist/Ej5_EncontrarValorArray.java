@@ -1,8 +1,8 @@
-package extras.unidad4.semana14.arrays;
+package extras.unidad4.semana14.arraylist;
 
 import java.util.Random;
 
-public class EncontrarValorArray {
+public class Ej5_EncontrarValorArray {
     public static void main(String[] args) {
         int[] numeros = new int[10];
         for (int i = 0; i < numeros.length; i++){

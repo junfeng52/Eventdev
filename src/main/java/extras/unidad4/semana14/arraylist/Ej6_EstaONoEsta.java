@@ -1,9 +1,9 @@
-package extras.unidad4.semana14.arrays;
+package extras.unidad4.semana14.arraylist;
 
 import java.util.Random;
 import java.util.Scanner;
 
-public class EstaONoEsta {
+public class Ej6_EstaONoEsta {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int[] numeros = new int[10];

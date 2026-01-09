@@ -1,12 +1,10 @@
-package extras.unidad4.semana14.arrays;
+package extras.unidad4.semana14.arraylist;
 
-import java.util.Random;
-
-public class EjercicioArray3 {
+public class Ej1_Array1 {
     public static void main(String[] args) {
-        int[] numeros = new int[1000];
+        int[] numeros = new int[10];
         for (int i = 0; i < numeros.length; i++){
-            numeros[i] = new Random().nextInt(10, 100);
+            numeros[i] = 211;
             System.out.println("Posición " + i + " contiene el valor " + numeros[i]);
         }
     }

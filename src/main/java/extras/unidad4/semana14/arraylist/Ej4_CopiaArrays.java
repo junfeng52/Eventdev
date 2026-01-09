@@ -1,8 +1,8 @@
-package extras.unidad4.semana14.arrays;
+package extras.unidad4.semana14.arraylist;
 
 import java.util.Random;
 
-public class CopiaArrays {
+public class Ej4_CopiaArrays {
     public static void main(String[] args) {
         int[] numeros = new int[10];
 
