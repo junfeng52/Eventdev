@@ -41,7 +41,7 @@ public class ServicioEvento {
     }
 
     public Evento buscarEventoPorNombre(String nombre){
-        return repositorio.listar().stream().filter(evento -> evento.consultarNombre() == nombre).findFirst().orElse(null);
+        return repositorio.listar().stream().filter(evento -> nombre.toLowerCase().equals(evento.consultarNombre().toLowerCase())).findFirst().orElse(null);
     }
 
     public ArrayList<Evento> obtenerEventosConAforoMayorA(int capacidad){
