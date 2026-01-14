@@ -20,7 +20,11 @@ public class ServicioUsuario {
     public void registrarUsuario(Usuario usuario){
 //        this.listaUsuarios.add(usuario);
 //        this.repositorio.guardar(usuario);
-        this.mapaUsuario.put(usuario.consultarEmail(), usuario);
+        if (this.mapaUsuario.containsKey(usuario.consultarEmail())){
+            System.out.println("Fallo en el registro de usuario.");
+        }else {
+            this.mapaUsuario.put(usuario.consultarEmail(), usuario);
+        }
     }
 
     public Usuario buscarUsuarioPorEmail(String email){
