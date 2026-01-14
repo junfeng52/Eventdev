@@ -38,6 +38,10 @@ public class ServicioUsuario {
         return this.mapaUsuario.get(email);
     }
 
+    public Usuario buscarUsuarioPorNombre(String nombre){
+        return this.mapaUsuario.values().stream().filter(usuario -> nombre.equals(usuario.consultarNombre())).findFirst().orElse(null);
+    }
+
 //    public void imprimirNombreUsuariosVip(){
 //        this.repositorio.listar().stream().filter(usuario -> usuario.esVip()).map(usuario -> usuario.consultarNombre()).forEach(nombre -> System.out.println(nombre));
 //    }
