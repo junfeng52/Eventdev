@@ -64,6 +64,10 @@ public class ServicioEvento {
         return this.repositorio.listar().stream().filter(evento -> evento.esBenefico()).count();
     }
 
+    public long contarEventosPorAforo(int aforoMinimo){
+        return this.mapaEventos.values().stream().filter(evento -> evento.consultarRecinto().consultarAforoMaximo() > aforoMinimo).count();
+    }
+
 //    public void eliminarEventosPasados(){
 //        Iterator<Evento> it = this.listaEventos.iterator();
 //        while (it.hasNext()){
