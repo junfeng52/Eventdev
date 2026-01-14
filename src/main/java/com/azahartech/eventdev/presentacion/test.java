@@ -61,7 +61,7 @@ public class test {
         servicioUsuario.registrarUsuario(new Usuario("us4","a@a.com", true));
         servicioUsuario.registrarUsuario(new Usuario("us5","a@a.com", true));
 
-        servicioUsuario.imprimirNombreUsuariosVip();
+        //servicioUsuario.imprimirNombreUsuariosVip();
         servicioEvento.contarEventosBeneficos();
     }
 }
