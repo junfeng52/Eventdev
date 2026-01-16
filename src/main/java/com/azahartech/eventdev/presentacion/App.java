@@ -2,6 +2,7 @@ package com.azahartech.eventdev.presentacion;
 
 import com.azahartech.eventdev.modelo.*;
 import com.azahartech.eventdev.servicio.ServicioEvento;
+import com.azahartech.eventdev.servicio.ServicioUsuario;
 import com.azahartech.eventdev.util.UtilidadValidacion;
 
 
@@ -12,6 +13,8 @@ import java.util.Scanner;
 public class App {
     private static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
     private static Scanner scanner = new Scanner(System.in);
+    private static ServicioUsuario listaUsuarios = new ServicioUsuario();
+
     public static void main(String[] args) {
         int input = -1;
 
@@ -19,6 +22,7 @@ public class App {
             System.out.println("Que tipo de clase quieres crear:");
             System.out.println("1. Concierto");
             System.out.println("2. Partido");
+            System.out.println("3. Registrar Usuario");
             System.out.println("0. Exit");
             System.out.printf("Dime la opcion: ");
             try {
@@ -36,6 +40,11 @@ public class App {
                     case 2:
                         pedirDatos("Partido");
                         break;
+
+                    case 3:
+                        registarUsuario();
+                        break;
+
 
                     default:
                         System.out.println("Opcion no valida.");
@@ -107,8 +116,28 @@ public class App {
                 break;
         }
 
+    }
 
+    private static void registarUsuario(){
+        String nombre;
+        String email;
+        boolean vip;
 
+        System.out.println("Dime el nombre de usuario");
+        nombre = scanner.nextLine();
+
+        System.out.println("Dime el email del usuario");
+        email = scanner.nextLine();
+        while (!UtilidadValidacion.esEmailValido(email)){
+            System.out.println("Email no valido.");
+            System.out.println("Dime el email del usuario.");
+            email = scanner.nextLine();
+        }
+
+        System.out.println("Dime si el usuario es Vip (Si/No) Defecto: No");
+        vip = scanner.nextLine().toLowerCase() == "si";
+
+        listaUsuarios.registrarUsuario(new Usuario(nombre, email, vip));
     }
 
 }
