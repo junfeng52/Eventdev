@@ -68,6 +68,10 @@ public class ServicioEvento {
         return this.mapaEventos.values().stream().filter(evento -> evento.consultarRecinto().consultarAforoMaximo() > aforoMinimo).count();
     }
 
+    public Evento buscarEventosPorPatron(String texto){
+        return mapaEventos.values().stream().filter(evento -> evento.consultarNombre().matches("(?i).*" + texto + ".*")).findFirst().orElse(null);
+    }
+
 //    public void eliminarEventosPasados(){
 //        Iterator<Evento> it = this.listaEventos.iterator();
 //        while (it.hasNext()){
