@@ -52,4 +52,14 @@ class UtilidadValidacionTest {
         assertFalse(UtilidadValidacion.esCodigoEventoValido("EVT-200-avt"));
         assertFalse(UtilidadValidacion.esCodigoEventoValido("EVT-2000-avt"));
     }
+
+    @Test
+    void esTelefonoEspañolValido_DeveDevolverTrue_ParaUnTelefonoValido() {
+        assertTrue(UtilidadValidacion.esTelefonoEspañolValido("670088999"));
+    }
+
+    @Test
+    void esTelefonoEspañolValido_DeveDevolverFalse_ParaUnTelefonoNoValido() {
+        assertFalse(UtilidadValidacion.esTelefonoEspañolValido("6700899"));
+    }
 }

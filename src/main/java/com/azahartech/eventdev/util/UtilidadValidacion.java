@@ -6,7 +6,7 @@ import java.util.Locale;
 public class UtilidadValidacion {
     public static boolean esEmailValido(String email){
         //return email != null && email != "" && email.indexOf("@") >= 1 && email.indexOf(".") > email.indexOf("@");
-        return email != null && email != "" && email.matches("[a-zA-Z0-9]+@[a-zA-Z0-9]+\\.[a-zA-Z0-9]{2,4}");
+        return email != null && email != "" && email.matches("\\w+@\\w+\\.[a-zA-Z0-9]{2,4}");
     }
 
     public static boolean esPuntuacionValida(int puntuacion){
@@ -19,5 +19,9 @@ public class UtilidadValidacion {
 
     public static boolean esCodigoEventoValido(String codigo){
         return codigo.matches("EVT-\\d{4}-[A-Z]{3}");
+    }
+
+    public static boolean esTelefonoEspañolValido(String telefono){
+        return telefono.matches("[679]\\d{8}");
     }
 }
