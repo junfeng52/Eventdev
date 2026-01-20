@@ -14,6 +14,7 @@ public class App {
     private static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
     private static Scanner scanner = new Scanner(System.in);
     private static ServicioUsuario listaUsuarios = new ServicioUsuario();
+    private static ServicioEvento listaEvento = new ServicioEvento();
 
     public static void main(String[] args) {
         int input = -1;
@@ -23,6 +24,7 @@ public class App {
             System.out.println("1. Concierto");
             System.out.println("2. Partido");
             System.out.println("3. Registrar Usuario");
+            System.out.println("4. Registrar Evento");
             System.out.println("0. Exit");
             System.out.printf("Dime la opcion: ");
             try {
@@ -45,6 +47,9 @@ public class App {
                         registarUsuario();
                         break;
 
+                    case 4:
+                        registrarEvento();
+                        break;
 
                     default:
                         System.out.println("Opcion no valida.");
@@ -138,6 +143,67 @@ public class App {
         vip = scanner.nextLine().toLowerCase() == "si";
 
         listaUsuarios.registrarUsuario(new Usuario(nombre, email, vip));
+    }
+
+    private static void registrarEvento(){
+        String id;
+        String nombre;
+        LocalDate fecha;
+        int dia, mes, año;
+
+        Recinto recinto;
+        String nombreRecinto;
+        String direccionRecinto;
+        int aforoMaximo;
+
+        double precioEntrada;
+        boolean benefico;
+
+        System.out.println("Dime el id del evento");
+        id = scanner.nextLine();
+        while (!UtilidadValidacion.esCodigoEventoValido(id)){
+            System.out.println("Codigo invalido. El codigo tiene que seguir este patron EVT-AAAA-XXX");
+            System.out.println("Dime el id del evento");
+            id = scanner.nextLine();
+        }
+
+        System.out.println("Dime el nombre del evento");
+        nombre = scanner.nextLine();
+
+        System.out.println("Dime el dia del evento");
+        dia = scanner.nextInt();
+        scanner.nextLine();
+
+        System.out.println("Dime el mes del evento");
+        mes = scanner.nextInt();
+        scanner.nextLine();
+
+        System.out.println("Dime el año del evento");
+        año = scanner.nextInt();
+        scanner.nextLine();
+
+        fecha = LocalDate.of(año,mes, dia);
+
+        System.out.println("Dime el nombre del recinto");
+        nombreRecinto = scanner.nextLine();
+
+        System.out.println("Dime la direccion del recinto");
+        direccionRecinto = scanner.nextLine();
+
+        System.out.println("Dime el aforo maximo del recinto");
+        aforoMaximo = scanner.nextInt();
+        scanner.nextLine();
+
+        recinto = new Recinto(nombreRecinto, direccionRecinto, aforoMaximo);
+
+        System.out.println("Dime el precio del evento");
+        precioEntrada = scanner.nextInt();
+        scanner.nextLine();
+
+        System.out.println("Dime el evento es benefico (si/no defecto: no)");
+        benefico = scanner.nextLine().toLowerCase() == "si";
+
+        listaEvento.registrarEvento(new Evento(nombre, fecha, recinto, precioEntrada, benefico, id));
     }
 
 }

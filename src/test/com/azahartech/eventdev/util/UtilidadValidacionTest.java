@@ -62,4 +62,22 @@ class UtilidadValidacionTest {
     void esTelefonoEspañolValido_DeveDevolverFalse_ParaUnTelefonoNoValido() {
         assertFalse(UtilidadValidacion.esTelefonoEspañolValido("6700899"));
     }
+
+    @Test
+    void esCodigoEventoValido_DeveDevolverTrue_ParaUnCodigoEventoValido() {
+        String codigoEvento = "EVT-2024-ENS";
+        assertTrue(UtilidadValidacion.esCodigoEventoValido(codigoEvento));
+    }
+
+    @Test
+    void esCodigoEventoValido_DeveDevolverFalse_ParaUnCodigoEventoNoValido() {
+        String codigoEvento1 = "EVT-202-ENS";
+        String codigoEvento2 = "EVT-2024-EN";
+        String codigoEvento3 = "ET-2024-ENS";
+        String codigoEvento4 = "evt-2024-ENS";
+        assertFalse(UtilidadValidacion.esCodigoEventoValido(codigoEvento1));
+        assertFalse(UtilidadValidacion.esCodigoEventoValido(codigoEvento2));
+        assertFalse(UtilidadValidacion.esCodigoEventoValido(codigoEvento3));
+        assertFalse(UtilidadValidacion.esCodigoEventoValido(codigoEvento4));
+    }
 }

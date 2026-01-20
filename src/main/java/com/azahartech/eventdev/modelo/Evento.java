@@ -1,6 +1,5 @@
 package com.azahartech.eventdev.modelo;
 
-import java.rmi.server.UID;
 import java.time.LocalDate;
 import java.util.UUID;
 
@@ -15,14 +14,23 @@ public class Evento {
     public Evento(){}
 
     public Evento(String nombre, LocalDate fecha, Recinto recinto, double precioEntrada){
-        this.id = UUID.randomUUID().toString();
+        this.id = "EVT-2025-MAD";
         this.nombre = nombre;
         this.fecha = fecha;
         this.recinto = recinto;
         this.precioEntrada = precioEntrada;
     }
-    public Evento(String nombre, LocalDate fecha, Recinto recinto, double precioEntrada, boolean benefico){
-        this.id = UUID.randomUUID().toString();
+
+    public Evento(String nombre, LocalDate fecha, Recinto recinto, double precioEntrada, String id){
+        this.id = id;
+        this.nombre = nombre;
+        this.fecha = fecha;
+        this.recinto = recinto;
+        this.precioEntrada = precioEntrada;
+    }
+
+    public Evento(String nombre, LocalDate fecha, Recinto recinto, double precioEntrada, boolean benefico, String id){
+        this.id = id;
         this.nombre = nombre;
         this.fecha = fecha;
         this.recinto = recinto;
