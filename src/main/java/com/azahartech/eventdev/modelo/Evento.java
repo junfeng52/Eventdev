@@ -1,8 +1,10 @@
 package com.azahartech.eventdev.modelo;
 
 import java.time.LocalDate;
+import java.util.UUID;
 
 public class Evento {
+    private String id;
     private String nombre;
     private LocalDate fecha;
     private Recinto recinto;
@@ -12,12 +14,23 @@ public class Evento {
     public Evento(){}
 
     public Evento(String nombre, LocalDate fecha, Recinto recinto, double precioEntrada){
+        this.id = "EVT-2025-MAD";
         this.nombre = nombre;
         this.fecha = fecha;
         this.recinto = recinto;
         this.precioEntrada = precioEntrada;
     }
-    public Evento(String nombre, LocalDate fecha, Recinto recinto, double precioEntrada, boolean benefico){
+
+    public Evento(String nombre, LocalDate fecha, Recinto recinto, double precioEntrada, String id){
+        this.id = id;
+        this.nombre = nombre;
+        this.fecha = fecha;
+        this.recinto = recinto;
+        this.precioEntrada = precioEntrada;
+    }
+
+    public Evento(String nombre, LocalDate fecha, Recinto recinto, double precioEntrada, boolean benefico, String id){
+        this.id = id;
         this.nombre = nombre;
         this.fecha = fecha;
         this.recinto = recinto;
@@ -27,6 +40,10 @@ public class Evento {
 
     public void registrarVenta(){
         
+    }
+
+    public String consultarId(){
+        return this.id;
     }
 
     public String consultarNombre(){

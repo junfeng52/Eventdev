@@ -3,10 +3,8 @@ package com.azahartech.eventdev.servicio;
 import com.azahartech.eventdev.datos.RepositorioGenerico;
 import com.azahartech.eventdev.modelo.*;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 import java.time.LocalDate;
-import java.util.Iterator;
 
 public class ServicioEvento {
     private Evento eventoDePrueba;
@@ -14,6 +12,7 @@ public class ServicioEvento {
 //    private Evento[] carteleraDestacados = new Evento[5];
 //    private ArrayList<Evento> listaEventos;
     private RepositorioGenerico<Evento> repositorio = new RepositorioGenerico();
+    private Map<String, Evento> mapaEventos = new HashMap<>();
 
     public ServicioEvento(){
         this.eventoDePrueba = new Evento("Evento", LocalDate.now(), new Recinto("recinto1", "direccion1", 90), 12);
@@ -30,14 +29,25 @@ public class ServicioEvento {
 
     public void registrarEvento(Evento evento) {
         //this.listaEventos.add(evento);
-        this.repositorio.guardar(evento);
+        //this.repositorio.guardar(evento);
+        this.mapaEventos.put(evento.consultarId(), evento);
+    }
+
+    public Evento buscarEventoPorId(String id){
+        return this.mapaEventos.get(id);
+    }
+
+    public void eliminarEvento(String id){
+        this.mapaEventos.remove(id);
     }
 
     public void mostrarTodoElCatalogo(){
-        for(Evento evento:this.repositorio.listar()){
+//        for(Evento evento:this.repositorio.listar()){
+//            evento.mostrarInformacion();
+//        }
+        for (Evento evento : this.mapaEventos.values()) {
             evento.mostrarInformacion();
         }
-
     }
 
     public Evento buscarEventoPorNombre(String nombre){
@@ -52,6 +62,14 @@ public class ServicioEvento {
 
     public long contarEventosBeneficos(){
         return this.repositorio.listar().stream().filter(evento -> evento.esBenefico()).count();
+    }
+
+    public long contarEventosPorAforo(int aforoMinimo){
+        return this.mapaEventos.values().stream().filter(evento -> evento.consultarRecinto().consultarAforoMaximo() > aforoMinimo).count();
+    }
+
+    public Evento buscarEventosPorPatron(String texto){
+        return mapaEventos.values().stream().filter(evento -> evento.consultarNombre().matches("(?i).*" + texto + ".*")).findFirst().orElse(null);
     }
 
 //    public void eliminarEventosPasados(){
