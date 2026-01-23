@@ -12,7 +12,7 @@ public class ServicioEvento {
 //    private Evento[] carteleraDestacados = new Evento[5];
 //    private ArrayList<Evento> listaEventos;
     private RepositorioGenerico<Evento> repositorio = new RepositorioGenerico();
-    private Map<String, Evento> mapaEventos = new HashMap<>();
+    private HashMap<String, Evento> mapaEventos = new HashMap<>();
 
     public ServicioEvento(){
         this.eventoDePrueba = new Evento("Evento", LocalDate.now(), new Recinto("recinto1", "direccion1", 90), 12);
