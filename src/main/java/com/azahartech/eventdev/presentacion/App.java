@@ -107,8 +107,7 @@ public class App {
             case "Concierto":
                 System.out.println("Dime el nombre de la banda principal");
                 eventoFinal = new Concierto(id, nombre, fechaEvento, recintoDelEvento, precioEntrada,scanner.nextLine());
-                eventoFinal.obtenerCodigoReferencia();
-                eventoFinal.mostrarInformacion();
+                System.out.println(eventoFinal.obtenerCodigoReferencia());                eventoFinal.mostrarInformacion();
                 break;
 
             case "Partido":
@@ -122,7 +121,7 @@ public class App {
                 equipoVisitante = scanner.nextLine();
 
                 eventoFinal = new Partido(id, nombre, fechaEvento, recintoDelEvento, precioEntrada, equipoLocal, equipoVisitante);
-                eventoFinal.obtenerCodigoReferencia();
+                System.out.println(eventoFinal.obtenerCodigoReferencia());
                 eventoFinal.mostrarInformacion();
                 break;
         }
