@@ -26,6 +26,7 @@ public class App {
             System.out.println("2. Partido");
             System.out.println("3. Registrar Usuario");
             System.out.println("4. Registrar Evento");
+            System.out.println("5. Generar informe");
             System.out.println("0. Exit");
             System.out.printf("Dime la opcion: ");
             try {
@@ -50,6 +51,14 @@ public class App {
 
                     case 4:
                         registrarEvento();
+                        break;
+
+                    case 5:
+                        if (listaEvento.isEmpty()){
+                            System.out.println("No hay ningun evento registrado");
+                        }else {
+                            listaEvento.generarInformeFinanciero();
+                        }
                         break;
 
                     default:
@@ -105,14 +114,27 @@ public class App {
 
         switch (tipoEvento){
             case "Concierto":
+                String nombreBanda;
+                double costeMontage;
+
                 System.out.println("Dime el nombre de la banda principal");
-                eventoFinal = new Concierto(id, nombre, fechaEvento, recintoDelEvento, precioEntrada,scanner.nextLine());
-                System.out.println(eventoFinal.obtenerCodigoReferencia());                eventoFinal.mostrarInformacion();
+                nombreBanda = scanner.nextLine();
+
+                System.out.println("Dime el coste del montaje");
+                costeMontage = scanner.nextDouble();
+                scanner.nextLine();
+
+                eventoFinal = new Concierto(id, nombre, fechaEvento, recintoDelEvento, precioEntrada, nombreBanda, costeMontage);
+                System.out.println(eventoFinal.obtenerCodigoReferencia());
+                eventoFinal.mostrarInformacion();
                 break;
 
             case "Partido":
                 String equipoLocal;
                 String equipoVisitante;
+
+                double costeSeguridad;
+                double costeArbitraje;
 
                 System.out.println("Dime el nombre del equipo local");
                 equipoLocal = scanner.nextLine();
@@ -120,7 +142,15 @@ public class App {
                 System.out.println("Dime el nombre del equipo visitante");
                 equipoVisitante = scanner.nextLine();
 
-                eventoFinal = new Partido(id, nombre, fechaEvento, recintoDelEvento, precioEntrada, equipoLocal, equipoVisitante);
+                System.out.println("Dime el coste de la seguridad");
+                costeSeguridad = scanner.nextDouble();
+                scanner.nextLine();
+
+                System.out.println("Dime el coste del arbitraje");
+                costeArbitraje = scanner.nextDouble();
+                scanner.nextLine();
+
+                eventoFinal = new Partido(id, nombre, fechaEvento, recintoDelEvento, precioEntrada, equipoLocal, equipoVisitante, costeSeguridad, costeArbitraje);
                 System.out.println(eventoFinal.obtenerCodigoReferencia());
                 eventoFinal.mostrarInformacion();
                 break;

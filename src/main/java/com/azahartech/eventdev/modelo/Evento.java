@@ -42,6 +42,13 @@ public abstract class Evento {
         return "REF-[" + this.id + "]-NOM-[" + this.nombre + "]";
     }
 
+    public abstract double calcularCosteOperativo();
+
+    public final double calcularPrecioVentaRecomendado(){
+        final double MARGEN = 0.20;
+        return ((double) calcularCosteOperativo() / this.recinto.consultarAforoMaximo()) * (1 + MARGEN);
+    }
+
     public void registrarVenta(){
         
     }
