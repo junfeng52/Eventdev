@@ -5,12 +5,8 @@ import java.time.LocalDate;
 public class Concierto extends Evento{
     String bandaPrincipal;
 
-    public Concierto(Evento evento, String bandaPrincipal){
-        this(evento.consultarNombre(), evento.consultarFecha(), evento.consultarRecinto(), evento.consultarPrecioEntrada(), bandaPrincipal);
-    }
-
-    public Concierto(String nombre, LocalDate fecha, Recinto recinto, double precioEntrada, String bandaPrincipal) {
-        super(nombre, fecha, recinto, precioEntrada);
+    public Concierto(String id,String nombre, LocalDate fecha, Recinto recinto, double precioEntrada, String bandaPrincipal) {
+        super(nombre, fecha, recinto, precioEntrada, id);
         this.bandaPrincipal = bandaPrincipal;
     }
 

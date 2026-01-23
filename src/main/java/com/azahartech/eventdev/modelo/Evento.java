@@ -3,7 +3,7 @@ package com.azahartech.eventdev.modelo;
 import java.time.LocalDate;
 import java.util.UUID;
 
-public class Evento {
+public abstract class Evento {
     private String id;
     private String nombre;
     private LocalDate fecha;
@@ -36,6 +36,10 @@ public class Evento {
         this.recinto = recinto;
         this.precioEntrada = precioEntrada;
         this.benefico = benefico;
+    }
+
+    public final String obtenerCodigoReferencia(){
+        return "REF-[" + this.id + "]-NOM-[" + this.nombre + "]";
     }
 
     public void registrarVenta(){

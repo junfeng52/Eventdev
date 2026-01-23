@@ -17,6 +17,7 @@ public class App {
     private static ServicioEvento listaEvento = new ServicioEvento();
 
     public static void main(String[] args) {
+
         int input = -1;
 
         do{
@@ -66,13 +67,19 @@ public class App {
     }
 
     private static void pedirDatos(String tipoEvento){
-        Evento evento = new Evento();
+        Evento eventoFinal;
         Recinto recintoDelEvento = new Recinto();
 
+        String id;
+        String nombre;
         LocalDate fechaEvento;
+        double precioEntrada;
+
+        System.out.println("Dime el id del evento.");
+        id = scanner.nextLine();
 
         System.out.println("Dime el nombre del evento.");
-        evento.cambiarNombre(scanner.nextLine());
+        nombre = scanner.nextLine();
 
         System.out.println("Dime la fecha del evento (Formato YYYY-MM-DD)");
         fechaEvento = LocalDate.parse(scanner.nextLine());
@@ -81,7 +88,6 @@ public class App {
         }else {
             System.out.println("La fecha es pasado");
         }
-        evento.cambiarFecha(fechaEvento);
 
         System.out.println("Dime el nombre del recinto");
         recintoDelEvento.cambiarNombre(scanner.nextLine());
@@ -94,16 +100,15 @@ public class App {
         scanner.nextLine();
 
         System.out.println("Dime el precio del evento");
-        evento.cambiarPrecioEntrada(scanner.nextDouble());
+        precioEntrada = scanner.nextDouble();
         scanner.nextLine();
-
-        evento.cambiarRecinto(recintoDelEvento);
 
         switch (tipoEvento){
             case "Concierto":
                 System.out.println("Dime el nombre de la banda principal");
-                evento = new Concierto(evento,scanner.nextLine());
-                evento.mostrarInformacion();
+                eventoFinal = new Concierto(id, nombre, fechaEvento, recintoDelEvento, precioEntrada,scanner.nextLine());
+                eventoFinal.obtenerCodigoReferencia();
+                eventoFinal.mostrarInformacion();
                 break;
 
             case "Partido":
@@ -116,8 +121,9 @@ public class App {
                 System.out.println("Dime el nombre del equipo visitante");
                 equipoVisitante = scanner.nextLine();
 
-                evento = new Partido(evento, equipoLocal, equipoVisitante);
-                evento.mostrarInformacion();
+                eventoFinal = new Partido(id, nombre, fechaEvento, recintoDelEvento, precioEntrada, equipoLocal, equipoVisitante);
+                eventoFinal.obtenerCodigoReferencia();
+                eventoFinal.mostrarInformacion();
                 break;
         }
 
@@ -203,7 +209,7 @@ public class App {
         System.out.println("Dime el evento es benefico (si/no defecto: no)");
         benefico = scanner.nextLine().toLowerCase() == "si";
 
-        listaEvento.registrarEvento(new Evento(nombre, fecha, recinto, precioEntrada, benefico, id));
+        //listaEvento.registrarEvento(new Evento(nombre, fecha, recinto, precioEntrada, benefico, id));
     }
 
 }
