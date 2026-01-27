@@ -12,13 +12,17 @@ public class ServicioEvento {
 //    private Evento[] carteleraDestacados = new Evento[5];
 //    private ArrayList<Evento> listaEventos;
     private RepositorioGenerico<Evento> repositorio = new RepositorioGenerico();
-    private Map<String, Evento> mapaEventos = new HashMap<>();
+    private HashMap<String, Evento> mapaEventos = new HashMap<>();
 
     public ServicioEvento(){
-        this.eventoDePrueba = new Evento("Evento", LocalDate.now(), new Recinto("recinto1", "direccion1", 90), 12);
+        //this.eventoDePrueba = new Evento("Evento", LocalDate.now(), new Recinto("recinto1", "direccion1", 90), 12);
         this.usuarioDePrueba = new Usuario("Usuario", "a@a", false);
         this.usuarioDePrueba.cambiarDetallePago(new DetallePago("visa", "1234"));
 //        this.listaEventos = new ArrayList<>();
+    }
+
+    public boolean isEmpty(){
+        return mapaEventos.isEmpty();
     }
 
     public Tique realizarCompra(int cantidad){
@@ -70,6 +74,14 @@ public class ServicioEvento {
 
     public Evento buscarEventosPorPatron(String texto){
         return mapaEventos.values().stream().filter(evento -> evento.consultarNombre().matches("(?i).*" + texto + ".*")).findFirst().orElse(null);
+    }
+
+    public void generarInformeFinanciero(){
+        for (Evento evento : mapaEventos.values()) {
+            System.out.printf("Evento:\t %s\n", evento.consultarNombre());
+            System.out.printf("\tCoste operativo: %d EUR\n", evento.calcularCosteOperativo());
+            System.out.printf("\tPrecio sugerido: %d EUR\n", evento.calcularPrecioVentaRecomendado());
+        }
     }
 
 //    public void eliminarEventosPasados(){

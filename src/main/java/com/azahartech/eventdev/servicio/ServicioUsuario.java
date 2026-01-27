@@ -6,12 +6,10 @@ import com.azahartech.eventdev.modelo.Usuario;
 import java.util.HashMap;
 import java.util.List;
 import java.util.ArrayList;
-import java.util.Map;
-
 public class ServicioUsuario {
 //    private List<Usuario> listaUsuarios = new ArrayList<>();
 //    private RepositorioGenerico<Usuario> repositorio = new RepositorioGenerico<>();
-    private Map<String, Usuario> mapaUsuario;
+    private HashMap<String, Usuario> mapaUsuario;
 
     public ServicioUsuario(){
         this.mapaUsuario = new HashMap<>();

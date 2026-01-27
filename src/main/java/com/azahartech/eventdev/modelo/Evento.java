@@ -3,7 +3,7 @@ package com.azahartech.eventdev.modelo;
 import java.time.LocalDate;
 import java.util.UUID;
 
-public class Evento {
+public abstract class Evento {
     private String id;
     private String nombre;
     private LocalDate fecha;
@@ -36,6 +36,17 @@ public class Evento {
         this.recinto = recinto;
         this.precioEntrada = precioEntrada;
         this.benefico = benefico;
+    }
+
+    public final String obtenerCodigoReferencia(){
+        return "REF-[" + this.id + "]-NOM-[" + this.nombre + "]";
+    }
+
+    public abstract double calcularCosteOperativo();
+
+    public final double calcularPrecioVentaRecomendado(){
+        final double MARGEN = 0.20;
+        return ((double) calcularCosteOperativo() / this.recinto.consultarAforoMaximo()) * (1 + MARGEN);
     }
 
     public void registrarVenta(){
