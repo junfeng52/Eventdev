@@ -11,10 +11,10 @@ import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 public class App {
-    private static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-    private static Scanner scanner = new Scanner(System.in);
-    private static ServicioUsuario listaUsuarios = new ServicioUsuario();
-    private static ServicioEvento listaEvento = new ServicioEvento();
+    private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+    private static final Scanner scanner = new Scanner(System.in);
+    private static final ServicioUsuario listaUsuarios = new ServicioUsuario();
+    private static final ServicioEvento listaEvento = new ServicioEvento();
 
     public static void main(String[] args) {
 
@@ -28,7 +28,7 @@ public class App {
             System.out.println("4. Registrar Evento");
             System.out.println("5. Generar informe");
             System.out.println("0. Exit");
-            System.out.printf("Dime la opcion: ");
+            System.out.print("Dime la opcion: ");
             try {
                 input = scanner.nextInt();
                 scanner.nextLine();
