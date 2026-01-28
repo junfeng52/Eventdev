@@ -1,8 +1,10 @@
 package com.azahartech.eventdev.modelo;
 
+import com.azahartech.eventdev.util.Exportable;
+
 import java.time.LocalDate;
 
-public class Tique {
+public class Tique implements Exportable {
     private static int contadorTiquetCreados = 0;
     private String id;
     private Evento evento;
@@ -51,4 +53,17 @@ public class Tique {
          this.comprador.mostrarInformacion();
          this.evento.mostrarInformacion();
      }
+
+    @Override
+    public String aXML() {
+        return String.format("<id>%s<id>\n" +
+                "<evento>%s</evento>\n" +
+                "<usuario>%s</usuario>\n" +
+                "<fecha>%s</fecha>", this.id, this.evento.aXML(), this.comprador.aXML(), this.id);
+    }
+
+    @Override
+    public String aCSV() {
+        return String.format("%s,%s,%s,%s", this.id, this.evento.aCSV(), this.comprador.aCSV(), this.id);
+    }
 }

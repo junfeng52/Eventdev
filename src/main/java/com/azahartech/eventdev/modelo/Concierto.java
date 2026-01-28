@@ -28,4 +28,14 @@ public class Concierto extends Evento{
         super.mostrarInformacion();
         System.out.printf("La banda principal se llama %s\n", this.bandaPrincipal);
     }
+
+    @Override
+    public String aXML() {
+        return super.aXML() + String.format("<bandaPrincipal>%s<bandaPrincipal>\n",this.bandaPrincipal);
+    }
+
+    @Override
+    public String aCSV() {
+        return super.aCSV() + String.format("%s", this.bandaPrincipal);
+    }
 }

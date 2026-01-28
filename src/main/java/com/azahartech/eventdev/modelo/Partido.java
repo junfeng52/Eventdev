@@ -34,4 +34,16 @@ public class Partido extends Evento{
     public String consultarEquipoVisitante(){
         return this.equipoVisitante;
     }
+
+    @Override
+    public String aXML() {
+        return super.aXML() +
+                String.format("<equipoLocal>%s<equipoLocal>\n" +
+                              "<equipoVisitante>%s<equipoVisitante>\n", this.equipoLocal, this.equipoVisitante);
+    }
+
+    @Override
+    public String aCSV() {
+        return super.aCSV() + String.format("%s,%s", this.equipoLocal, this.equipoVisitante);
+    }
 }

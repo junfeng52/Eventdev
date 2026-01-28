@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.ArrayList;
 public class ServicioUsuario {
 //    private List<Usuario> listaUsuarios = new ArrayList<>();
-//    private RepositorioGenerico<Usuario> repositorio = new RepositorioGenerico<>();
+    private RepositorioGenerico<Usuario> repositorio = new RepositorioGenerico<>();
     private HashMap<String, Usuario> mapaUsuario;
 
     public ServicioUsuario(){
@@ -40,6 +40,9 @@ public class ServicioUsuario {
         return this.mapaUsuario.values().stream().filter(usuario -> nombre.equals(usuario.consultarNombre())).findFirst().orElse(null);
     }
 
+    public ArrayList<Usuario> listar() {
+        return this.repositorio.listar();
+    }
 //    public void imprimirNombreUsuariosVip(){
 //        this.repositorio.listar().stream().filter(usuario -> usuario.esVip()).map(usuario -> usuario.consultarNombre()).forEach(nombre -> System.out.println(nombre));
 //    }

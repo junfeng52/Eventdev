@@ -1,9 +1,11 @@
 package com.azahartech.eventdev.modelo;
 
+import com.azahartech.eventdev.util.Exportable;
+
 import java.time.LocalDate;
 import java.util.UUID;
 
-public abstract class Evento {
+public abstract class Evento implements Exportable {
     private String id;
     private String nombre;
     private LocalDate fecha;
@@ -100,5 +102,20 @@ public abstract class Evento {
     public void mostrarInformacion(){
         System.out.printf("El nombre del evento es: %s, la fecha es: %s y el precio es: %.2f\n", this.nombre, this.fecha, this.precioEntrada);
         this.recinto.mostrarInformacion();
+    }
+
+    @Override
+    public String aXML() {
+        return String.format("<id>%s<id>\n" +
+                "<nombre>%s</nombre>\n" +
+                "<fecha>%s</fecha>\n" +
+                "<recinto>%s</recinto>\n" +
+                "<precio>%s</precio>\n" +
+                "<benefico>%s</benefico>\n", this.id, this.nombre, this.fecha, this.recinto.consultarNombre(), this.precioEntrada, this.benefico);
+    }
+
+    @Override
+    public String aCSV() {
+        return String.format("%s,%s,%s,%s,%s,%s", this.id, this.nombre, this.fecha, this.recinto.consultarNombre(), this.precioEntrada, this.benefico);
     }
 }
