@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" name="EventDEV:jar">
-    <output-path>$PROJECT_DIR$/out/artifacts/EventDEV_jar</output-path>
-    <root id="archive" name="EventDEV.jar">
-      <element id="module-output" name="EventDEV" />
-    </root>
-  </artifact>
-</component>
