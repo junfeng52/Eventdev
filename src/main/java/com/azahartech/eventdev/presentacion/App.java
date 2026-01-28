@@ -1,6 +1,7 @@
 package com.azahartech.eventdev.presentacion;
 
 import com.azahartech.eventdev.modelo.*;
+import com.azahartech.eventdev.pagos.PagoBizum;
 import com.azahartech.eventdev.pagos.PagoPaypal;
 import com.azahartech.eventdev.pagos.PagoTarjeta;
 import com.azahartech.eventdev.pagos.ProcesadorPago;
@@ -297,11 +298,13 @@ public class App {
     private static void compra(){
         ProcesadorPago miTarjeta = new PagoTarjeta("123456789012", "2025-12-31");
         ProcesadorPago miPaypal = new PagoPaypal("alba@azahar.tech");
+        ProcesadorPago miBizum = new PagoBizum("097889123", 1234);
 
         Evento evento = new Concierto("EVT-2025-MAD", "Concierto", LocalDate.now(), new Recinto("recinto", "direccion", 100), 100, "banda", 1000);
         Usuario usuario = new Usuario("nombre","a@a.com", true);
 
         listaEvento.realizarCompra(usuario, evento, 1, miTarjeta);
         listaEvento.realizarCompra(usuario, evento, 1, miPaypal);
+        listaEvento.realizarCompra(usuario, evento, 1, miBizum);
     }
 }

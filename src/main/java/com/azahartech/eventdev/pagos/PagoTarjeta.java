@@ -27,7 +27,12 @@ public class PagoTarjeta implements ProcesadorPago {
 
     @Override
     public boolean procesarPago(double cantidad) {
+        boolean compraValida = Math.random() > 0.1;
         System.out.printf("Procesando pago de %.2f con Tarjeta %s\n", cantidad, this.numeroTarjeta);
-        return this.numeroTarjeta.length() == 12;
+        if (!compraValida){
+            System.err.println("Error: Saldo insuficiente en la tarjeta");
+        }
+
+        return compraValida && this.numeroTarjeta.length() == 12;
     }
 }
