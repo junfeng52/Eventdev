@@ -1,6 +1,9 @@
 package com.azahartech.eventdev.presentacion;
 
 import com.azahartech.eventdev.modelo.*;
+import com.azahartech.eventdev.pagos.PagoPaypal;
+import com.azahartech.eventdev.pagos.PagoTarjeta;
+import com.azahartech.eventdev.pagos.ProcesadorPago;
 import com.azahartech.eventdev.servicio.ServicioEvento;
 import com.azahartech.eventdev.servicio.ServicioUsuario;
 import com.azahartech.eventdev.util.Exportable;
@@ -82,6 +85,10 @@ public class App {
                         }else {
                             enviarNotificacionesATodos();
                         }
+                        break;
+
+                    case 8:
+                        compra();
                         break;
 
                     default:
@@ -285,5 +292,16 @@ public class App {
 
     private static void ordenarLista(){
         Collections.sort(listaUsuarios.listar());
+    }
+
+    private static void compra(){
+        ProcesadorPago miTarjeta = new PagoTarjeta("123456789012", "2025-12-31");
+        ProcesadorPago miPaypal = new PagoPaypal("alba@azahar.tech");
+
+        Evento evento = new Concierto("EVT-2025-MAD", "Concierto", LocalDate.now(), new Recinto("recinto", "direccion", 100), 100, "banda", 1000);
+        Usuario usuario = new Usuario("nombre","a@a.com", true);
+
+        listaEvento.realizarCompra(usuario, evento, 1, miTarjeta);
+        listaEvento.realizarCompra(usuario, evento, 1, miPaypal);
     }
 }

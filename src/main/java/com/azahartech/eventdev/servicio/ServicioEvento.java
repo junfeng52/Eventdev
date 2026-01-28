@@ -2,6 +2,7 @@ package com.azahartech.eventdev.servicio;
 
 import com.azahartech.eventdev.datos.RepositorioGenerico;
 import com.azahartech.eventdev.modelo.*;
+import com.azahartech.eventdev.pagos.ProcesadorPago;
 
 import java.util.*;
 import java.time.LocalDate;
@@ -25,11 +26,24 @@ public class ServicioEvento {
         return mapaEventos.isEmpty();
     }
 
-    public Tique realizarCompra(int cantidad){
-        this.usuarioDePrueba.consultarDetallePago().realizarPago(this.eventoDePrueba.consultarPrecioEntrada() * cantidad);
-        this.eventoDePrueba.registrarVenta();
-        return new Tique(this.eventoDePrueba, this.usuarioDePrueba);
+    public Tique realizarCompra(Usuario usuario, Evento evento, int cantidad, ProcesadorPago pasarela){
+        Tique resultado;
+        double costaTotal = evento.consultarPrecioEntrada() * cantidad;
+        boolean pagoExitoso = pasarela.procesarPago(costaTotal);
+        if (pagoExitoso){
+            resultado = new Tique(evento, usuario);
+        } else {
+            System.err.println("El pago ha sido rechazado.");
+            resultado = null;
+        }
+        return resultado;
     }
+
+//    public Tique realizarCompra(int cantidad){
+//        this.usuarioDePrueba.consultarDetallePago().realizarPago(this.eventoDePrueba.consultarPrecioEntrada() * cantidad);
+//        this.eventoDePrueba.registrarVenta();
+//        return new Tique(this.eventoDePrueba, this.usuarioDePrueba);
+//    }
 
     public void registrarEvento(Evento evento) {
         //this.listaEventos.add(evento);

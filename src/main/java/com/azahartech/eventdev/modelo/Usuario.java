@@ -71,8 +71,7 @@ public class Usuario implements Exportable, Notificable, Comparable<Usuario> {
 
     @Override
     public String aCSV() {
-        return String.format("nombre,email,id\n" +
-                "%s,%s,%s", this.nombreUsuario, this.email, this.id);
+        return String.format("%s,%s,%s", this.nombreUsuario, this.email, this.id);
     }
 
 
