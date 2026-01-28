@@ -62,7 +62,7 @@ public class App {
                         break;
 
                     case 4:
-                        registrarEvento();
+                        generarDemo();
                         break;
 
                     case 5:
