@@ -28,6 +28,7 @@ public class PagoBizum implements ProcesadorPago{
 
     @Override
     public boolean procesarPago(double cantidad) {
+        System.out.printf("El telefono %s esta pagando %.2f\n",this.telefono, cantidad);
         return telefono.matches("\\d{9}") && telefono.length() == 9;
     }
 }

@@ -17,8 +17,8 @@ public class PagoPaypal implements ProcesadorPago {
 
     @Override
     public boolean procesarPago(double cantidad) {
-        System.out.printf("Redirigiendo a PayPal para el usuario %s", this.emailUsuario);
-        System.out.printf("Cobro de %.2f realizado", cantidad);
+        System.out.printf("Redirigiendo a PayPal para el usuario %s\n", this.emailUsuario);
+        System.out.printf("Cobro de %.2f realizado\n", cantidad);
         return true;
     }
 }

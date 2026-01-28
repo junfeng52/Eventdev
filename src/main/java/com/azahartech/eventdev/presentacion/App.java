@@ -38,6 +38,7 @@ public class App {
             System.out.println("5. Generar informe");
             System.out.println("6. Exportar a lista");
             System.out.println("7. Enviar mensaje");
+            System.out.println("8. Simulacion de pagos");
             System.out.println("0. Exit");
             System.out.print("Dime la opcion: ");
             try {
