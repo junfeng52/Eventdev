@@ -109,9 +109,9 @@ public abstract class Evento implements Exportable {
         return String.format("<id>%s<id>\n" +
                 "<nombre>%s</nombre>\n" +
                 "<fecha>%s</fecha>\n" +
-                "<recinto>%s</recinto>" +
-                "<precio>%s</precio>" +
-                "<benefico>%s</benefico>", this.id, this.nombre, this.fecha, this.recinto.consultarNombre(), this.precioEntrada, this.benefico);
+                "<recinto>%s</recinto>\n" +
+                "<precio>%s</precio>\n" +
+                "<benefico>%s</benefico>\n", this.id, this.nombre, this.fecha, this.recinto.consultarNombre(), this.precioEntrada, this.benefico);
     }
 
     @Override
