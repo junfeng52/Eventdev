@@ -34,7 +34,7 @@ public class App {
             System.out.println("1. Concierto");
             System.out.println("2. Partido");
             System.out.println("3. Registrar Usuario");
-            System.out.println("4. Registrar Evento");
+            System.out.println("4. Generar Demo");
             System.out.println("5. Generar informe");
             System.out.println("6. Exportar a lista");
             System.out.println("7. Enviar mensaje");
@@ -271,6 +271,26 @@ public class App {
         benefico = scanner.nextLine().toLowerCase() == "si";
 
         //listaEvento.registrarEvento(new Evento(nombre, fecha, recinto, precioEntrada, benefico, id));
+    }
+
+    private static void generarDemo(){
+        listaEvento.registrarEvento(new Concierto("EVT-2025-MAD" ,"evento", LocalDate.now(), new Recinto("recinto", "direccion", 100), 100, "banda", 1000));
+        listaEvento.registrarEvento(new Concierto("EVT-2027-MAD" ,"evento1", LocalDate.now(), new Recinto("recinto", "direccion", 100), 112, "banda", 1640));
+        listaEvento.registrarEvento(new Concierto("EVT-2059-MAD" ,"evento2", LocalDate.now(), new Recinto("recinto", "direccion", 100), 120, "banda", 18120));
+        listaEvento.registrarEvento(new Concierto("EVT-2023-MAD" ,"evento3", LocalDate.now(), new Recinto("recinto", "direccion", 100), 1340, "banda", 1100));
+        listaEvento.registrarEvento(new Concierto("EVT-2021-MAD" ,"evento4", LocalDate.now(), new Recinto("recinto", "direccion", 100), 10, "banda", 100));
+        listaEvento.registrarEvento(new Partido("EVT-2024-MAD", "evento5", LocalDate.now(), new Recinto("recinto", "direccion", 100), 101, "local", "visitante", 20000, 4000));
+        listaEvento.registrarEvento(new Partido("EVT-2034-MAD", "evento7", LocalDate.now(), new Recinto("recinto", "direccion", 100), 55, "local", "visitante", 3000, 40000));
+        listaEvento.registrarEvento(new Partido("EVT-2014-MAD", "evento34", LocalDate.now(), new Recinto("recinto", "direccion", 100), 50, "local", "visitante", 4000, 401));
+        listaEvento.registrarEvento(new Partido("EVT-2034-MAD", "evento251", LocalDate.now(), new Recinto("recinto", "direccion", 100), 210, "local", "visitante", 8000, 400));
+        listaEvento.registrarEvento(new Partido("EVT-2074-MAD", "evento14", LocalDate.now(), new Recinto("recinto", "direccion", 100), 410, "local", "visitante", 1000, 40010));
+
+        listaUsuarios.registrarUsuario(new Usuario("nombrea","a@a.com", true));
+        listaUsuarios.registrarUsuario(new Usuario("nombreb","b@b.com", true));
+        listaUsuarios.registrarUsuario(new Usuario("nombrec","c@c.com", true));
+        listaUsuarios.registrarUsuario(new Usuario("nombred","d@d.com", true));
+        listaUsuarios.registrarUsuario(new Usuario("nombref","f@f.com", true));
+
     }
 
     private static void exportarALista(){
