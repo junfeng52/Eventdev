@@ -111,7 +111,7 @@ public abstract class Evento implements Exportable {
                 "<fecha>%s</fecha>\n" +
                 "<recinto>%s</recinto>\n" +
                 "<precio>%s</precio>\n" +
-                "<benefico>%s</benefico>\n", this.id, this.nombre, this.fecha, this.recinto.consultarNombre(), this.precioEntrada, this.benefico);
+                "<benefico>%s</benefico>\n", this.id, this.nombre, this.fecha, this.recinto.aXML(), this.precioEntrada, this.benefico);
     }
 
     @Override

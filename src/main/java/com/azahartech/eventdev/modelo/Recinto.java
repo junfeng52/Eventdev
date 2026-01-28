@@ -1,8 +1,10 @@
 package com.azahartech.eventdev.modelo;
 
+import com.azahartech.eventdev.util.Exportable;
+
 import javax.crypto.spec.IvParameterSpec;
 
-public class Recinto {
+public class Recinto implements Exportable {
     private String nombre;
     private String direccion;
     private int aforoMaximo;
@@ -73,5 +75,17 @@ public class Recinto {
             }
         }
         return asientoLibre;
+    }
+
+    @Override
+    public String aXML() {
+        return String.format("<nombre>%s</nombre>\n" +
+                             "<direccion>%s</direccion>\n" +
+                             "<aforoMaximo>%s</aforoMaximo>\n", this.nombre, this.direccion, this.aforoMaximo);
+    }
+
+    @Override
+    public String aCSV() {
+        return String.format("%s,%s,%s", this.nombre, this.direccion, this.aforoMaximo);
     }
 }
