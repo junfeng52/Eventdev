@@ -1,10 +1,11 @@
 package com.azahartech.eventdev.modelo;
 
 import com.azahartech.eventdev.util.Exportable;
+import com.azahartech.eventdev.util.Notificable;
 
 import java.util.UUID;
 
-public class Usuario implements Exportable {
+public class Usuario implements Exportable, Notificable, Comparable<Usuario> {
     private String id;
     private String nombreUsuario;
     private String email;
@@ -72,5 +73,16 @@ public class Usuario implements Exportable {
     public String aCSV() {
         return String.format("nombre,email,id\n" +
                 "%s,%s,%s", this.nombreUsuario, this.email, this.id);
+    }
+
+
+    @Override
+    public void enviarNotificacion(String mensaje) {
+        System.out.println("Enviando email a " + email + ": " + mensaje);
+    }
+
+    @Override
+    public int compareTo(Usuario o) {
+        return this.nombreUsuario.compareTo(o.nombreUsuario);
     }
 }

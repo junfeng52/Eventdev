@@ -4,6 +4,7 @@ import com.azahartech.eventdev.modelo.*;
 import com.azahartech.eventdev.servicio.ServicioEvento;
 import com.azahartech.eventdev.servicio.ServicioUsuario;
 import com.azahartech.eventdev.util.Exportable;
+import com.azahartech.eventdev.util.Notificable;
 import com.azahartech.eventdev.util.UtilidadExportacion;
 import com.azahartech.eventdev.util.UtilidadValidacion;
 
@@ -11,6 +12,7 @@ import com.azahartech.eventdev.util.UtilidadValidacion;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
 public class App {
@@ -30,6 +32,8 @@ public class App {
             System.out.println("3. Registrar Usuario");
             System.out.println("4. Registrar Evento");
             System.out.println("5. Generar informe");
+            System.out.println("6. Exportar a lista");
+            System.out.println("7. Enviar mensaje");
             System.out.println("0. Exit");
             System.out.print("Dime la opcion: ");
             try {
@@ -61,6 +65,22 @@ public class App {
                             System.out.println("No hay ningun evento registrado");
                         }else {
                             listaEvento.generarInformeFinanciero();
+                        }
+                        break;
+
+                    case 6:
+                        if (listaEvento.isEmpty()){
+                            System.out.println("No hay ningun evento registrado");
+                        }else {
+                            exportarALista();
+                        }
+                        break;
+
+                    case 7:
+                        if (listaEvento.isEmpty()){
+                            System.out.println("No hay ningun evento registrado");
+                        }else {
+                            enviarNotificacionesATodos();
                         }
                         break;
 
@@ -251,7 +271,19 @@ public class App {
         listaMezclada.add(new Partido("EVT-2024-MAD", "evento", LocalDate.now(), new Recinto("recinto", "direccion", 100), 10, "local", "visitante", 2000, 4000));
         listaMezclada.add(new Tique(new Concierto("EVT-2026-MAD", "evento", LocalDate.now(), new Recinto("recinto", "direccion", 100), 100, "banda", 3000), new Usuario("nombre","a@a.com", true)));
         UtilidadExportacion.exportarLista(listaMezclada);
+    }
 
+    private static void enviarNotificacionesATodos(){
+        ArrayList<Notificable> listaNotificable = new ArrayList<>();
+        listaNotificable.add(new Usuario("nombre","a@a.com", true));
+        listaNotificable.add(new Administrador());
 
+        for (Notificable notificable : listaNotificable) {
+            notificable.enviarNotificacion("Hola");
+        }
+    }
+
+    private static void ordenarLista(){
+        Collections.sort(listaUsuarios.listar());
     }
 }
