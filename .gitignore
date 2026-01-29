@@ -27,6 +27,3 @@ bin/
 
 ### Mac OS ###
 .DS_Store
-*.xml
-.idea
-EventDEV.iml
