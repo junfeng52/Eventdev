@@ -43,6 +43,7 @@ public abstract class Evento implements Exportable {
         return ((double) calcularCosteOperativo() / this.recinto.consultarAforoMaximo()) * (1 + MARGEN);
     }
 
+    @SuppressWarnings("PMD.EmptyMethodInAbstractClassShouldBeAbstract")
     public void registrarVenta(){
         
     }

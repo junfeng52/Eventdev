@@ -4,13 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="380ec833-2849-4f66-8416-354ca96996f7" name="Changes" comment="Cambios en el XML">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/azahartech/eventdev/modelo/Concierto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/azahartech/eventdev/modelo/Concierto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/azahartech/eventdev/modelo/DetallePago.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/azahartech/eventdev/modelo/DetallePago.java" afterDir="false" />
+    <list default="true" id="380ec833-2849-4f66-8416-354ca96996f7" name="Changes" comment="Refactorizacion+&#10;-">
       <change beforePath="$PROJECT_DIR$/src/main/java/com/azahartech/eventdev/modelo/Evento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/azahartech/eventdev/modelo/Evento.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/azahartech/eventdev/modelo/Partido.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/azahartech/eventdev/modelo/Partido.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/azahartech/eventdev/modelo/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/azahartech/eventdev/modelo/Usuario.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/azahartech/eventdev/presentacion/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/azahartech/eventdev/presentacion/App.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -169,7 +164,15 @@
       <option name="project" value="LOCAL" />
       <updated>1769800214570</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Refactorizacion+&#10;-">
+      <option name="closed" value="true" />
+      <created>1769801170576</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1769801170576</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -187,9 +190,10 @@
     <MESSAGE value="Semana 18 session 1" />
     <MESSAGE value="Semana 18 session 1 Ampliacion" />
     <MESSAGE value="Ordenacion" />
-    <MESSAGE value="Cambios" />
     <MESSAGE value="Cambios en el XML" />
-    <option name="LAST_COMMIT_MESSAGE" value="Cambios en el XML" />
+    <MESSAGE value="Cambios" />
+    <MESSAGE value="Refactorizacion+&#10;-" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactorizacion+&#10;-" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -20,10 +20,10 @@ import java.util.Collections;
 import java.util.Scanner;
 
 public class App {
-    private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-    private static final Scanner scanner = new Scanner(System.in);
-    private static final ServicioUsuario listaUsuarios = new ServicioUsuario();
-    private static final ServicioEvento listaEvento = new ServicioEvento();
+    private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+    private static final Scanner SCANNER = new Scanner(System.in);
+    private static final ServicioUsuario LISTA_USUARIOS = new ServicioUsuario();
+    private static final ServicioEvento LISTA_EVENTO = new ServicioEvento();
 
     public static void main(String[] args) {
 
@@ -42,8 +42,8 @@ public class App {
             System.out.println("0. Exit");
             System.out.print("Dime la opcion: ");
             try {
-                input = scanner.nextInt();
-                scanner.nextLine();
+                input = SCANNER.nextInt();
+                SCANNER.nextLine();
                 switch (input){
                     case 0:
                         System.out.println("Salinedo del programa.");
@@ -66,15 +66,15 @@ public class App {
                         break;
 
                     case 5:
-                        if (listaEvento.isEmpty()){
+                        if (LISTA_EVENTO.isEmpty()){
                             System.out.println("No hay ningun evento registrado");
                         }else {
-                            listaEvento.generarInformeFinanciero();
+                            LISTA_EVENTO.generarInformeFinanciero();
                         }
                         break;
 
                     case 6:
-                        if (listaEvento.isEmpty()){
+                        if (LISTA_EVENTO.isEmpty()){
                             System.out.println("No hay ningun evento registrado");
                         }else {
                             exportarALista();
@@ -82,7 +82,7 @@ public class App {
                         break;
 
                     case 7:
-                        if (listaEvento.isEmpty()){
+                        if (LISTA_EVENTO.isEmpty()){
                             System.out.println("No hay ningun evento registrado");
                         }else {
                             enviarNotificacionesATodos();
@@ -99,12 +99,12 @@ public class App {
                 }
             } catch (RuntimeException e) {
                 System.out.println("Opcion no valida.");
-                scanner.nextLine();
+                SCANNER.nextLine();
             }
 
 
         } while (input != 0);
-        scanner.close();
+        SCANNER.close();
     }
 
     private static void pedirDatos(String tipoEvento){
@@ -117,13 +117,13 @@ public class App {
         double precioEntrada;
 
         System.out.println("Dime el id del evento.");
-        id = scanner.nextLine();
+        id = SCANNER.nextLine();
 
         System.out.println("Dime el nombre del evento.");
-        nombre = scanner.nextLine();
+        nombre = SCANNER.nextLine();
 
         System.out.println("Dime la fecha del evento (Formato YYYY-MM-DD)");
-        fechaEvento = LocalDate.parse(scanner.nextLine());
+        fechaEvento = LocalDate.parse(SCANNER.nextLine());
         if(UtilidadValidacion.esFechaFutura(fechaEvento)){
             System.out.println("La fecha es futura");
         }else {
@@ -131,18 +131,18 @@ public class App {
         }
 
         System.out.println("Dime el nombre del recinto");
-        recintoDelEvento.cambiarNombre(scanner.nextLine());
+        recintoDelEvento.cambiarNombre(SCANNER.nextLine());
 
         System.out.println("Dime la direccion del recinto");
-        recintoDelEvento.cambiarDireccion(scanner.nextLine());
+        recintoDelEvento.cambiarDireccion(SCANNER.nextLine());
 
         System.out.println("Dime el aforo maximo del recinto");
-        recintoDelEvento.cambiarAforoMaximo(scanner.nextInt());
-        scanner.nextLine();
+        recintoDelEvento.cambiarAforoMaximo(SCANNER.nextInt());
+        SCANNER.nextLine();
 
         System.out.println("Dime el precio del evento");
-        precioEntrada = scanner.nextDouble();
-        scanner.nextLine();
+        precioEntrada = SCANNER.nextDouble();
+        SCANNER.nextLine();
 
         switch (tipoEvento){
             case "Concierto":
@@ -150,11 +150,11 @@ public class App {
                 double costeMontage;
 
                 System.out.println("Dime el nombre de la banda principal");
-                nombreBanda = scanner.nextLine();
+                nombreBanda = SCANNER.nextLine();
 
                 System.out.println("Dime el coste del montaje");
-                costeMontage = scanner.nextDouble();
-                scanner.nextLine();
+                costeMontage = SCANNER.nextDouble();
+                SCANNER.nextLine();
 
                 eventoFinal = new Concierto(id, nombre, fechaEvento, recintoDelEvento, precioEntrada, nombreBanda, costeMontage);
                 System.out.println(eventoFinal.obtenerCodigoReferencia());
@@ -169,18 +169,18 @@ public class App {
                 double costeArbitraje;
 
                 System.out.println("Dime el nombre del equipo local");
-                equipoLocal = scanner.nextLine();
+                equipoLocal = SCANNER.nextLine();
 
                 System.out.println("Dime el nombre del equipo visitante");
-                equipoVisitante = scanner.nextLine();
+                equipoVisitante = SCANNER.nextLine();
 
                 System.out.println("Dime el coste de la seguridad");
-                costeSeguridad = scanner.nextDouble();
-                scanner.nextLine();
+                costeSeguridad = SCANNER.nextDouble();
+                SCANNER.nextLine();
 
                 System.out.println("Dime el coste del arbitraje");
-                costeArbitraje = scanner.nextDouble();
-                scanner.nextLine();
+                costeArbitraje = SCANNER.nextDouble();
+                SCANNER.nextLine();
 
                 eventoFinal = new Partido(id, nombre, fechaEvento, recintoDelEvento, precioEntrada, equipoLocal, equipoVisitante, costeSeguridad, costeArbitraje);
                 System.out.println(eventoFinal.obtenerCodigoReferencia());
@@ -196,20 +196,20 @@ public class App {
         boolean vip;
 
         System.out.println("Dime el nombre de usuario");
-        nombre = scanner.nextLine();
+        nombre = SCANNER.nextLine();
 
         System.out.println("Dime el email del usuario");
-        email = scanner.nextLine();
+        email = SCANNER.nextLine();
         while (!UtilidadValidacion.esEmailValido(email)){
             System.out.println("Email no valido.");
             System.out.println("Dime el email del usuario.");
-            email = scanner.nextLine();
+            email = SCANNER.nextLine();
         }
 
         System.out.println("Dime si el usuario es Vip (Si/No) Defecto: No");
-        vip = scanner.nextLine().toLowerCase() == "si";
+        vip = SCANNER.nextLine().toLowerCase() == "si";
 
-        listaUsuarios.registrarUsuario(new Usuario(nombre, email, vip));
+        LISTA_USUARIOS.registrarUsuario(new Usuario(nombre, email, vip));
     }
 
     private static void registrarEvento(){
@@ -227,69 +227,69 @@ public class App {
         boolean benefico;
 
         System.out.println("Dime el id del evento");
-        id = scanner.nextLine();
+        id = SCANNER.nextLine();
         while (!UtilidadValidacion.esCodigoEventoValido(id)){
             System.out.println("Codigo invalido. El codigo tiene que seguir este patron EVT-AAAA-XXX");
             System.out.println("Dime el id del evento");
-            id = scanner.nextLine();
+            id = SCANNER.nextLine();
         }
 
         System.out.println("Dime el nombre del evento");
-        nombre = scanner.nextLine();
+        nombre = SCANNER.nextLine();
 
         System.out.println("Dime el dia del evento");
-        dia = scanner.nextInt();
-        scanner.nextLine();
+        dia = SCANNER.nextInt();
+        SCANNER.nextLine();
 
         System.out.println("Dime el mes del evento");
-        mes = scanner.nextInt();
-        scanner.nextLine();
+        mes = SCANNER.nextInt();
+        SCANNER.nextLine();
 
         System.out.println("Dime el año del evento");
-        año = scanner.nextInt();
-        scanner.nextLine();
+        año = SCANNER.nextInt();
+        SCANNER.nextLine();
 
         fecha = LocalDate.of(año,mes, dia);
 
         System.out.println("Dime el nombre del recinto");
-        nombreRecinto = scanner.nextLine();
+        nombreRecinto = SCANNER.nextLine();
 
         System.out.println("Dime la direccion del recinto");
-        direccionRecinto = scanner.nextLine();
+        direccionRecinto = SCANNER.nextLine();
 
         System.out.println("Dime el aforo maximo del recinto");
-        aforoMaximo = scanner.nextInt();
-        scanner.nextLine();
+        aforoMaximo = SCANNER.nextInt();
+        SCANNER.nextLine();
 
         recinto = new Recinto(nombreRecinto, direccionRecinto, aforoMaximo);
 
         System.out.println("Dime el precio del evento");
-        precioEntrada = scanner.nextInt();
-        scanner.nextLine();
+        precioEntrada = SCANNER.nextInt();
+        SCANNER.nextLine();
 
         System.out.println("Dime el evento es benefico (si/no defecto: no)");
-        benefico = scanner.nextLine().toLowerCase() == "si";
+        benefico = SCANNER.nextLine().toLowerCase() == "si";
 
         //listaEvento.registrarEvento(new Evento(nombre, fecha, recinto, precioEntrada, benefico, id));
     }
 
     private static void generarDemo(){
-        listaEvento.registrarEvento(new Concierto("EVT-2025-MAD" ,"evento", LocalDate.now(), new Recinto("recinto", "direccion", 100), 100, "banda", 1000));
-        listaEvento.registrarEvento(new Concierto("EVT-2027-MAD" ,"evento1", LocalDate.now(), new Recinto("recinto", "direccion", 100), 112, "banda", 1640));
-        listaEvento.registrarEvento(new Concierto("EVT-2059-MAD" ,"evento2", LocalDate.now(), new Recinto("recinto", "direccion", 100), 120, "banda", 18120));
-        listaEvento.registrarEvento(new Concierto("EVT-2023-MAD" ,"evento3", LocalDate.now(), new Recinto("recinto", "direccion", 100), 1340, "banda", 1100));
-        listaEvento.registrarEvento(new Concierto("EVT-2021-MAD" ,"evento4", LocalDate.now(), new Recinto("recinto", "direccion", 100), 10, "banda", 100));
-        listaEvento.registrarEvento(new Partido("EVT-2024-MAD", "evento5", LocalDate.now(), new Recinto("recinto", "direccion", 100), 101, "local", "visitante", 20000, 4000));
-        listaEvento.registrarEvento(new Partido("EVT-2034-MAD", "evento7", LocalDate.now(), new Recinto("recinto", "direccion", 100), 55, "local", "visitante", 3000, 40000));
-        listaEvento.registrarEvento(new Partido("EVT-2014-MAD", "evento34", LocalDate.now(), new Recinto("recinto", "direccion", 100), 50, "local", "visitante", 4000, 401));
-        listaEvento.registrarEvento(new Partido("EVT-2034-MAD", "evento251", LocalDate.now(), new Recinto("recinto", "direccion", 100), 210, "local", "visitante", 8000, 400));
-        listaEvento.registrarEvento(new Partido("EVT-2074-MAD", "evento14", LocalDate.now(), new Recinto("recinto", "direccion", 100), 410, "local", "visitante", 1000, 40010));
+        LISTA_EVENTO.registrarEvento(new Concierto("EVT-2025-MAD" ,"evento", LocalDate.now(), new Recinto("recinto", "direccion", 100), 100, "banda", 1000));
+        LISTA_EVENTO.registrarEvento(new Concierto("EVT-2027-MAD" ,"evento1", LocalDate.now(), new Recinto("recinto", "direccion", 100), 112, "banda", 1640));
+        LISTA_EVENTO.registrarEvento(new Concierto("EVT-2059-MAD" ,"evento2", LocalDate.now(), new Recinto("recinto", "direccion", 100), 120, "banda", 18120));
+        LISTA_EVENTO.registrarEvento(new Concierto("EVT-2023-MAD" ,"evento3", LocalDate.now(), new Recinto("recinto", "direccion", 100), 1340, "banda", 1100));
+        LISTA_EVENTO.registrarEvento(new Concierto("EVT-2021-MAD" ,"evento4", LocalDate.now(), new Recinto("recinto", "direccion", 100), 10, "banda", 100));
+        LISTA_EVENTO.registrarEvento(new Partido("EVT-2024-MAD", "evento5", LocalDate.now(), new Recinto("recinto", "direccion", 100), 101, "local", "visitante", 20000, 4000));
+        LISTA_EVENTO.registrarEvento(new Partido("EVT-2034-MAD", "evento7", LocalDate.now(), new Recinto("recinto", "direccion", 100), 55, "local", "visitante", 3000, 40000));
+        LISTA_EVENTO.registrarEvento(new Partido("EVT-2014-MAD", "evento34", LocalDate.now(), new Recinto("recinto", "direccion", 100), 50, "local", "visitante", 4000, 401));
+        LISTA_EVENTO.registrarEvento(new Partido("EVT-2034-MAD", "evento251", LocalDate.now(), new Recinto("recinto", "direccion", 100), 210, "local", "visitante", 8000, 400));
+        LISTA_EVENTO.registrarEvento(new Partido("EVT-2074-MAD", "evento14", LocalDate.now(), new Recinto("recinto", "direccion", 100), 410, "local", "visitante", 1000, 40010));
 
-        listaUsuarios.registrarUsuario(new Usuario("nombrea","a@a.com", true));
-        listaUsuarios.registrarUsuario(new Usuario("nombreb","b@b.com", true));
-        listaUsuarios.registrarUsuario(new Usuario("nombrec","c@c.com", true));
-        listaUsuarios.registrarUsuario(new Usuario("nombred","d@d.com", true));
-        listaUsuarios.registrarUsuario(new Usuario("nombref","f@f.com", true));
+        LISTA_USUARIOS.registrarUsuario(new Usuario("nombrea","a@a.com", true));
+        LISTA_USUARIOS.registrarUsuario(new Usuario("nombreb","b@b.com", true));
+        LISTA_USUARIOS.registrarUsuario(new Usuario("nombrec","c@c.com", true));
+        LISTA_USUARIOS.registrarUsuario(new Usuario("nombred","d@d.com", true));
+        LISTA_USUARIOS.registrarUsuario(new Usuario("nombref","f@f.com", true));
 
     }
 
@@ -315,7 +315,7 @@ public class App {
     }
 
     private static void ordenarLista(){
-        Collections.sort(listaUsuarios.listar());
+        Collections.sort(LISTA_USUARIOS.listar());
     }
 
     private static void compra(){
@@ -326,8 +326,8 @@ public class App {
         Evento evento = new Concierto("EVT-2025-MAD", "Concierto", LocalDate.now(), new Recinto("recinto", "direccion", 100), 100, "banda", 1000);
         Usuario usuario = new Usuario("nombre","a@a.com", true);
 
-        listaEvento.realizarCompra(usuario, evento, 1, miTarjeta);
-        listaEvento.realizarCompra(usuario, evento, 1, miPaypal);
-        listaEvento.realizarCompra(usuario, evento, 1, miBizum);
+        LISTA_EVENTO.realizarCompra(usuario, evento, 1, miTarjeta);
+        LISTA_EVENTO.realizarCompra(usuario, evento, 1, miPaypal);
+        LISTA_EVENTO.realizarCompra(usuario, evento, 1, miBizum);
     }
 }
