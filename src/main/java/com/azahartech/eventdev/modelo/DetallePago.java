@@ -1,6 +1,8 @@
 package com.azahartech.eventdev.modelo;
 
-public class DetallePago {
+import com.azahartech.eventdev.util.Exportable;
+
+public class DetallePago implements Exportable {
     private String tipoTarjeta;
     private String numeroTarjeta;
 
@@ -37,4 +39,17 @@ public class DetallePago {
         System.out.printf("El tipo de tarjeta es: %s, el numero de tarjeta es: %s\n", this.tipoTarjeta, this.numeroTarjeta);
     }
 
+    @Override
+    public String aXML(int indent) {
+        String tabs = "\t".repeat(indent);
+        return tabs + "<detallePago>" +
+               tabs + "\t<tipoTarjeta>" + this.tipoTarjeta + "</tipoTarjeta>" +
+               tabs + "\t<numeroTarjeta>" + this.numeroTarjeta + "</numeroTarjeta>" +
+               tabs + "</detallePago>";
+    }
+
+    @Override
+    public String aCSV() {
+        return String.format("%s, %s", this.tipoTarjeta, this.numeroTarjeta);
+    }
 }

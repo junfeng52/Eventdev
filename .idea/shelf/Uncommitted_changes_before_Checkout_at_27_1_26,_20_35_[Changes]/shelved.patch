@@ -1,0 +1,32 @@
+Index: src/main/java/com/azahartech/eventdev/util/Notificable.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.azahartech.eventdev.util;\n\npublic interface Notificable {\n    public void enviarNotificacion(String mensaje);\n}\n
+===================================================================
+diff --git a/src/main/java/com/azahartech/eventdev/util/Notificable.java b/src/main/java/com/azahartech/eventdev/util/Notificable.java
+--- a/src/main/java/com/azahartech/eventdev/util/Notificable.java	(revision 995c45e35b5a54270b8fcd2ab07eaa2836258e8b)
++++ b/src/main/java/com/azahartech/eventdev/util/Notificable.java	(date 1769542511373)
+@@ -1,5 +1,5 @@
+ package com.azahartech.eventdev.util;
+ 
+ public interface Notificable {
+-    public void enviarNotificacion(String mensaje);
++    void enviarNotificacion(String mensaje);
+ }
+Index: src/main/java/com/azahartech/eventdev/util/Exportable.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.azahartech.eventdev.util;\n\npublic interface Exportable {\n    public abstract String aXML();\n    public abstract String aCSV();\n}\n
+===================================================================
+diff --git a/src/main/java/com/azahartech/eventdev/util/Exportable.java b/src/main/java/com/azahartech/eventdev/util/Exportable.java
+--- a/src/main/java/com/azahartech/eventdev/util/Exportable.java	(revision 995c45e35b5a54270b8fcd2ab07eaa2836258e8b)
++++ b/src/main/java/com/azahartech/eventdev/util/Exportable.java	(date 1769542511381)
+@@ -1,6 +1,6 @@
+ package com.azahartech.eventdev.util;
+ 
+ public interface Exportable {
+-    public abstract String aXML();
+-    public abstract String aCSV();
++    String aXML();
++    String aCSV();
+ }

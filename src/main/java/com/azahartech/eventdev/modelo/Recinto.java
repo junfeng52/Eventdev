@@ -78,12 +78,16 @@ public class Recinto implements Exportable {
     }
 
     @Override
-    public String aXML() {
-        return String.format("<nombre>%s</nombre>\n" +
-                             "<direccion>%s</direccion>\n" +
-                             "<aforoMaximo>%s</aforoMaximo>\n" +
-                             "<asientosVipOcupados>%d<asientosVipOcupados>" +
-                            "<asientosVip>%d<asientosVip>", this.nombre, this.direccion, this.aforoMaximo, contarAsientosVIPLibre(), this.asientosVip.length);
+    public String aXML(int indent) {
+        String tabs = "\t".repeat(indent);
+        return  tabs + "<recinto>\n" +
+                tabs + "\t<nombre>" + this.nombre + "</nombre>\n" +
+                tabs + "\t<direccion>" + this.direccion + "</direccion>\n" +
+                tabs + "\t<aforoMaximo>" + this.aforoMaximo + "</aforoMaximo>\n" +
+                tabs + "\t<asientosVipLibres>" + this.contarAsientosVIPLibre() + "<asientosVipLibres>\n" +
+                tabs + "\t<asientosVipOcupados>" + (this.asientosVip.length - this.contarAsientosVIPLibre()) + "<asientosVipOcupados>\n" +
+                tabs + "\t<asientosVip>" + this.asientosVip.length + "<asientosVip>\n" +
+                tabs + "</recinto>\n";
     }
 
     @Override

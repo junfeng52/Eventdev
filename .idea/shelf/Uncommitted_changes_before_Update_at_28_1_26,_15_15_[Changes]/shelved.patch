@@ -1,0 +1,25 @@
+Index: src/main/java/com/azahartech/eventdev/modelo/Concierto.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.azahartech.eventdev.modelo;\n\nimport java.time.LocalDate;\n\npublic class Concierto extends Evento{\n    private String bandaPrincipal;\n    private double costeMontaje;\n\n    public Concierto(String id,String nombre, LocalDate fecha, Recinto recinto, double precioEntrada, String bandaPrincipal, double costeMontaje) {\n        super(nombre, fecha, recinto, precioEntrada, id);\n        this.bandaPrincipal = bandaPrincipal;\n        this.costeMontaje = costeMontaje;\n    }\n\n    public String consultarBandaPrincipal(){\n        return this.bandaPrincipal;\n    }\n\n    @Override\n    public double calcularCosteOperativo() {\n        final double COSTES_FIJOS = 5000;\n\n        return costeMontaje + COSTES_FIJOS;\n    }\n\n    @Override\n    public void mostrarInformacion() {\n        super.mostrarInformacion();\n        System.out.printf(\"La banda principal se llama %s\\n\", this.bandaPrincipal);\n    }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/azahartech/eventdev/modelo/Concierto.java b/src/main/java/com/azahartech/eventdev/modelo/Concierto.java
+--- a/src/main/java/com/azahartech/eventdev/modelo/Concierto.java	(revision 7ac09b4fd8a696007de28fb8d0424bf0e5b05db9)
++++ b/src/main/java/com/azahartech/eventdev/modelo/Concierto.java	(date 1769543670654)
+@@ -28,4 +28,14 @@
+         super.mostrarInformacion();
+         System.out.printf("La banda principal se llama %s\n", this.bandaPrincipal);
+     }
++
++    @Override
++    public String aXML() {
++        return super.aXML();
++    }
++
++    @Override
++    public String aCSV() {
++        return super.aCSV() + String.format("");
++    }
+ }

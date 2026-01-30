@@ -30,8 +30,17 @@ public class Concierto extends Evento{
     }
 
     @Override
-    public String aXML() {
-        return super.aXML() + String.format("<bandaPrincipal>%s<bandaPrincipal>\n",this.bandaPrincipal);
+    public String aXML(int indent) {
+        String tabs = "\t".repeat(indent);
+        return tabs + "<evento>\n" +
+                tabs + "\t<id>" + this.id + "<id>\n" +
+                tabs + "\t<nombre>" + this.nombre + "</nombre>\n" +
+                tabs + "\t<fecha>" + this.fecha + "</fecha>\n" +
+                this.recinto.aXML(indent+1) +
+                tabs + "\t<precio>" + this.precioEntrada + "</precio>\n" +
+                tabs + "\t<benefico>" + this.benefico + "</benefico>\n" +
+                tabs + "\t<bandaPrincipal>" + this.bandaPrincipal + "<bandaPrincipal>\n" +
+                tabs + "</evento>\n";
     }
 
     @Override

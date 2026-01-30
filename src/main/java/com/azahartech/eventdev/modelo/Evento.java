@@ -6,12 +6,12 @@ import java.time.LocalDate;
 import java.util.UUID;
 
 public abstract class Evento implements Exportable {
-    private String id;
-    private String nombre;
-    private LocalDate fecha;
-    private Recinto recinto;
-    private double precioEntrada;
-    private boolean benefico = false;
+    protected String id;
+    protected String nombre;
+    protected LocalDate fecha;
+    protected Recinto recinto;
+    protected double precioEntrada;
+    protected boolean benefico = false;
 
     public Evento(){}
 
@@ -102,16 +102,6 @@ public abstract class Evento implements Exportable {
     public void mostrarInformacion(){
         System.out.printf("El nombre del evento es: %s, la fecha es: %s y el precio es: %.2f\n", this.nombre, this.fecha, this.precioEntrada);
         this.recinto.mostrarInformacion();
-    }
-
-    @Override
-    public String aXML() {
-        return String.format("<id>%s<id>\n" +
-                "<nombre>%s</nombre>\n" +
-                "<fecha>%s</fecha>\n" +
-                "<recinto>%s</recinto>\n" +
-                "<precio>%s</precio>\n" +
-                "<benefico>%s</benefico>\n", this.id, this.nombre, this.fecha, this.recinto.aXML(), this.precioEntrada, this.benefico);
     }
 
     @Override
