@@ -82,7 +82,7 @@ public class Recinto implements Exportable {
         return String.format("<nombre>%s</nombre>\n" +
                              "<direccion>%s</direccion>\n" +
                              "<aforoMaximo>%s</aforoMaximo>\n" +
-                             "<asientosVip>%d<asientosVipOcupados>" +
+                             "<asientosVipOcupados>%d<asientosVipOcupados>" +
                             "<asientosVip>%d<asientosVip>", this.nombre, this.direccion, this.aforoMaximo, contarAsientosVIPLibre(), this.asientosVip.length);
     }
 
