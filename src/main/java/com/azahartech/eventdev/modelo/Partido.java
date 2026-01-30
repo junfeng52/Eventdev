@@ -52,6 +52,6 @@ public class Partido extends Evento{
 
     @Override
     public String aCSV() {
-        return super.aCSV() + String.format("%s,%s", this.equipoLocal, this.equipoVisitante);
+        return super.aCSV() + String.format(",%s,%s", this.equipoLocal, this.equipoVisitante);
     }
 }

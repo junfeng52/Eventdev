@@ -16,10 +16,15 @@ public class Usuario implements Exportable, Notificable, Comparable<Usuario> {
     public Usuario(){}
 
     public Usuario(String nombre, String email, boolean vip){
+        this(nombre, email, vip, null);
+    }
+
+    public Usuario(String nombre, String email, boolean vip, DetallePago detallePago){
         this.id = UUID.randomUUID().toString();
         this.nombreUsuario = nombre;
         this.email = email;
         this.vip = vip;
+        this.detallePago = detallePago;
     }
 
     public String consultarNombre(){

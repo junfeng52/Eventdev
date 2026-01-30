@@ -45,6 +45,6 @@ public class Concierto extends Evento{
 
     @Override
     public String aCSV() {
-        return super.aCSV() + String.format("%s", this.bandaPrincipal);
+        return super.aCSV() + String.format(",%s", this.bandaPrincipal);
     }
 }

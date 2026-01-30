@@ -296,6 +296,8 @@ public class App {
     private static void exportarALista(){
         ArrayList<Exportable> listaMezclada = new ArrayList<>();
         listaMezclada.add(new Usuario("nombre","a@a.com", true));
+        listaMezclada.add(new Usuario("nombre2","b@b.com", true, new DetallePago("Mastercard", "20012312312543")));
+
         listaMezclada.add(new Concierto("EVT-2025-MAD" ,"evento", LocalDate.now(), new Recinto("recinto", "direccion", 100), 100, "banda", 1000));
         listaMezclada.add(new Partido("EVT-2024-MAD", "evento", LocalDate.now(), new Recinto("recinto", "direccion", 100), 10, "local", "visitante", 2000, 4000));
         listaMezclada.add(new Tique(new Concierto("EVT-2026-MAD", "evento", LocalDate.now(), new Recinto("recinto", "direccion", 100), 100, "banda", 3000), new Usuario("nombre","a@a.com", true)));

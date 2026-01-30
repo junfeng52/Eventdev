@@ -16,19 +16,11 @@ public abstract class Evento implements Exportable {
     public Evento(){}
 
     public Evento(String nombre, LocalDate fecha, Recinto recinto, double precioEntrada){
-        this.id = "EVT-2025-MAD";
-        this.nombre = nombre;
-        this.fecha = fecha;
-        this.recinto = recinto;
-        this.precioEntrada = precioEntrada;
+        this(nombre, fecha, recinto, precioEntrada, false, "EVT-2025-MAD");
     }
 
     public Evento(String nombre, LocalDate fecha, Recinto recinto, double precioEntrada, String id){
-        this.id = id;
-        this.nombre = nombre;
-        this.fecha = fecha;
-        this.recinto = recinto;
-        this.precioEntrada = precioEntrada;
+        this(nombre, fecha, recinto, precioEntrada, false, "EVT-2025-MAD");
     }
 
     public Evento(String nombre, LocalDate fecha, Recinto recinto, double precioEntrada, boolean benefico, String id){
