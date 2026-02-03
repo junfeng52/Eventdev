@@ -12,6 +12,8 @@ public abstract class Evento implements Exportable {
     protected Recinto recinto;
     protected double precioEntrada;
     protected boolean benefico = false;
+    private EstadoEvento estado;
+    private TipoEvento tipo;
 
     public Evento(){}
 
@@ -24,12 +26,18 @@ public abstract class Evento implements Exportable {
     }
 
     public Evento(String nombre, LocalDate fecha, Recinto recinto, double precioEntrada, boolean benefico, String id){
+        this(nombre, fecha, recinto, precioEntrada, benefico, id, TipoEvento.DEPORTE);
+    }
+
+
+    public Evento(String nombre, LocalDate fecha, Recinto recinto, double precioEntrada, boolean benefico, String id, TipoEvento tipo){
         this.id = id;
         this.nombre = nombre;
         this.fecha = fecha;
         this.recinto = recinto;
         this.precioEntrada = precioEntrada;
         this.benefico = benefico;
+        this.estado = EstadoEvento.PLANIFICADO;
     }
 
     public final String obtenerCodigoReferencia(){
@@ -44,8 +52,13 @@ public abstract class Evento implements Exportable {
     }
 
     @SuppressWarnings("PMD.EmptyMethodInAbstractClassShouldBeAbstract")
-    public void registrarVenta(){
-        
+    public boolean registrarVenta(){
+        if(this.estado == EstadoEvento.ACTIVO){
+            System.out.println("Evento registrado");
+        }else {
+            System.out.println("No se pueden vendes entradas. El evento está " + this.estado);
+        }
+        return this.estado == EstadoEvento.ACTIVO;
     }
 
     public String consultarId(){
@@ -92,8 +105,21 @@ public abstract class Evento implements Exportable {
         this.benefico = benefico;
     }
 
+    public void activarVenta(){
+        this.estado = EstadoEvento.ACTIVO;
+    }
+
+    public void cancelarEvento(){
+        this.estado = EstadoEvento.CANCELADO;
+    }
+
+    public void finalizarEvento(){
+        this.estado = EstadoEvento.FINALIZADO;
+    }
+
+
     public void mostrarInformacion(){
-        System.out.printf("El nombre del evento es: %s, la fecha es: %s y el precio es: %.2f\n", this.nombre, this.fecha, this.precioEntrada);
+        System.out.printf("El nombre del evento es: %s, la fecha es: %s y el precio es: %.2f€ y su estado actual es %s, es de tipo: %s\n", this.nombre, this.fecha, this.precioEntrada, this.estado, this.tipo.getDescripcion());
         this.recinto.mostrarInformacion();
     }
 

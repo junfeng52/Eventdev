@@ -6,8 +6,12 @@ public class Concierto extends Evento{
     private String bandaPrincipal;
     private double costeMontaje;
 
-    public Concierto(String id,String nombre, LocalDate fecha, Recinto recinto, double precioEntrada, String bandaPrincipal, double costeMontaje) {
-        super(nombre, fecha, recinto, precioEntrada, id);
+    public Concierto(String id, String nombre, LocalDate fecha, Recinto recinto, double precioEntrada, String bandaPrincipal, double costeMontaje){
+        this(id, nombre, fecha, recinto, precioEntrada, false, bandaPrincipal, costeMontaje, TipoEvento.CONCIERTO);
+    }
+
+    public Concierto(String id,String nombre, LocalDate fecha, Recinto recinto, double precioEntrada, boolean benefico, String bandaPrincipal, double costeMontaje, TipoEvento tipo) {
+        super(nombre, fecha, recinto, precioEntrada, benefico, id, tipo);
         this.bandaPrincipal = bandaPrincipal;
         this.costeMontaje = costeMontaje;
     }

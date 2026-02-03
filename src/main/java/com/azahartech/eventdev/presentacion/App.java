@@ -39,6 +39,7 @@ public class App {
             System.out.println("6. Exportar a lista");
             System.out.println("7. Enviar mensaje");
             System.out.println("8. Simulacion de pagos");
+            System.out.println("9. Prueba evento");
             System.out.println("0. Exit");
             System.out.print("Dime la opcion: ");
             try {
@@ -91,6 +92,10 @@ public class App {
 
                     case 8:
                         compra();
+                        break;
+
+                    case 9:
+                        pruebaRegistrarEvento();
                         break;
 
                     default:
@@ -329,5 +334,15 @@ public class App {
         LISTA_EVENTO.realizarCompra(usuario, evento, 1, miTarjeta);
         LISTA_EVENTO.realizarCompra(usuario, evento, 1, miPaypal);
         LISTA_EVENTO.realizarCompra(usuario, evento, 1, miBizum);
+    }
+
+    private static void pruebaRegistrarEvento(){
+        Evento eventoPrueba = new Partido("EVT-2024-MAD", "evento", LocalDate.now(), new Recinto("recinto", "direccion", 100), 10, "local", "visitante", 2000, 4000);
+        eventoPrueba.registrarVenta();
+        eventoPrueba.activarVenta();
+        eventoPrueba.registrarVenta();
+        eventoPrueba.cancelarEvento();
+        eventoPrueba.registrarVenta();
+        eventoPrueba.mostrarInformacion();
     }
 }

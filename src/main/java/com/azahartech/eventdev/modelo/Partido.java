@@ -12,8 +12,12 @@ public class Partido extends Evento{
 
     public Partido(){}
 
-    public Partido(String id,String nombre, LocalDate fecha, Recinto recinto, double precioEntrada, String equipoLocal, String equipoVisitante, double costeSeguridad, double costeArbitraje) {
-        super(nombre, fecha, recinto, precioEntrada, id);
+    public Partido(String id, String nombre, LocalDate fecha, Recinto recinto, double precioEntrada, String equipoLocal, String equipoVisitante, double costeSeguridad, double costeArbitraje){
+        this(id, nombre, fecha, recinto, precioEntrada, false, TipoEvento.DEPORTE, equipoLocal, equipoVisitante, costeSeguridad, costeArbitraje);
+    }
+
+    public Partido(String id,String nombre, LocalDate fecha, Recinto recinto, double precioEntrada, boolean benefico, TipoEvento tipo, String equipoLocal, String equipoVisitante, double costeSeguridad, double costeArbitraje) {
+        super(nombre, fecha, recinto, precioEntrada, benefico, id, tipo);
         this.equipoLocal = equipoLocal;
         this.equipoVisitante = equipoVisitante;
         this.costeSeguridad = costeSeguridad;
