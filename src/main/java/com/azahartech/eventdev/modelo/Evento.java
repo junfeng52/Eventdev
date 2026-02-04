@@ -3,6 +3,7 @@ package com.azahartech.eventdev.modelo;
 import com.azahartech.eventdev.util.Exportable;
 
 import java.time.LocalDate;
+import java.util.Objects;
 import java.util.UUID;
 
 public abstract class Evento implements Exportable {
@@ -105,6 +106,22 @@ public abstract class Evento implements Exportable {
         this.benefico = benefico;
     }
 
+    public TipoEvento getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(TipoEvento tipo) {
+        this.tipo = tipo;
+    }
+
+    public EstadoEvento getEstado() {
+        return estado;
+    }
+
+    public void setEstado(EstadoEvento estado) {
+        this.estado = estado;
+    }
+
     public void activarVenta(){
         this.estado = EstadoEvento.ACTIVO;
     }
@@ -121,6 +138,13 @@ public abstract class Evento implements Exportable {
     public void mostrarInformacion(){
         System.out.printf("El nombre del evento es: %s, la fecha es: %s y el precio es: %.2f€ y su estado actual es %s, es de tipo: %s\n", this.nombre, this.fecha, this.precioEntrada, this.estado, this.tipo.getDescripcion());
         this.recinto.mostrarInformacion();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Evento evento = (Evento) o;
+        return Objects.equals(id, evento.id);
     }
 
     @Override

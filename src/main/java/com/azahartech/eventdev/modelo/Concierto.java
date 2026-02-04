@@ -5,6 +5,7 @@ import java.time.LocalDate;
 public class Concierto extends Evento{
     private String bandaPrincipal;
     private double costeMontaje;
+    private String listaCanciones;
 
     public Concierto(String id, String nombre, LocalDate fecha, Recinto recinto, double precioEntrada, String bandaPrincipal, double costeMontaje){
         this(id, nombre, fecha, recinto, precioEntrada, false, bandaPrincipal, costeMontaje, TipoEvento.CONCIERTO);
@@ -18,6 +19,10 @@ public class Concierto extends Evento{
 
     public String consultarBandaPrincipal(){
         return this.bandaPrincipal;
+    }
+
+    public void setListaCanciones(String listaCanciones) {
+        this.listaCanciones = listaCanciones;
     }
 
     @Override
@@ -43,12 +48,13 @@ public class Concierto extends Evento{
                 this.recinto.aXML(indent+1) +
                 tabs + "\t<precio>" + this.precioEntrada + "</precio>\n" +
                 tabs + "\t<benefico>" + this.benefico + "</benefico>\n" +
-                tabs + "\t<bandaPrincipal>" + this.bandaPrincipal + "<bandaPrincipal>\n" +
+                tabs + "\t<bandaPrincipal>" + this.bandaPrincipal + "</bandaPrincipal>\n" +
+                tabs + "\t<listaCanciones>" + this.listaCanciones + "</listaCanciones>\n" +
                 tabs + "</evento>\n";
     }
 
     @Override
     public String aCSV() {
-        return super.aCSV() + String.format(",%s", this.bandaPrincipal);
+        return super.aCSV() + String.format(",%s,%s", this.bandaPrincipal, this.listaCanciones);
     }
 }

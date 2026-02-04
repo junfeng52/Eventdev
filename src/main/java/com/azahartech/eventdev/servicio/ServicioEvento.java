@@ -8,6 +8,8 @@ import java.util.*;
 import java.time.LocalDate;
 
 public class ServicioEvento {
+    private Scanner scanner = new Scanner(System.in);
+
     private Evento eventoDePrueba;
     private Usuario usuarioDePrueba;
 //    private Evento[] carteleraDestacados = new Evento[5];
@@ -24,6 +26,10 @@ public class ServicioEvento {
 
     public boolean isEmpty(){
         return mapaEventos.isEmpty();
+    }
+
+    public HashMap<String, Evento> listar(){
+        return mapaEventos;
     }
 
     public Tique realizarCompra(Usuario usuario, Evento evento, int cantidad, ProcesadorPago pasarela){
@@ -96,6 +102,26 @@ public class ServicioEvento {
             System.out.printf("\tCoste operativo: %d EUR\n", evento.calcularCosteOperativo());
             System.out.printf("\tPrecio sugerido: %d EUR\n", evento.calcularPrecioVentaRecomendado());
         }
+    }
+
+    public void procesarCierreEventos(){
+        for (Evento evento : this.mapaEventos.values()) {
+            if (evento.getEstado() == EstadoEvento.ACTIVO){
+                if (evento instanceof Partido){
+                    System.out.println("Cerrando partido: " + evento.consultarNombre());
+                    System.out.println("Dime el resultado del partido (X-X): ");
+                    ((Partido) evento).setResultadoMarcador(scanner.nextLine());
+                } else if (evento instanceof Concierto) {
+                    System.out.println("Cerrando concierto: " + evento.consultarNombre());
+                    System.out.println("Dime las canciones que has tocado: ");
+                    ((Concierto) evento).setListaCanciones(scanner.nextLine());
+                } else {
+                    System.out.println("Cerrando evento genérico");
+                }
+                evento.setEstado(EstadoEvento.FINALIZADO);
+            }
+        }
+        this.mapaEventos.values().stream().filter(evento -> evento.getEstado() == EstadoEvento.FINALIZADO).forEach(evento -> System.out.println(evento.aCSV()));
     }
 
 //    public void eliminarEventosPasados(){

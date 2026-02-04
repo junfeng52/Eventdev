@@ -98,12 +98,16 @@ public class App {
                         pruebaRegistrarEvento();
                         break;
 
+                    case 10:
+                        pruebaEstados();
+                        break;
+
                     default:
                         System.out.println("Opcion no valida.");
                         break;
                 }
             } catch (RuntimeException e) {
-                System.out.println("Opcion no valida.");
+                System.out.println("Opcion no valida. ERROR" + e);
                 SCANNER.nextLine();
             }
 
@@ -344,5 +348,13 @@ public class App {
         eventoPrueba.cancelarEvento();
         eventoPrueba.registrarVenta();
         eventoPrueba.mostrarInformacion();
+    }
+
+    private static void pruebaEstados(){
+        generarDemo();
+        LISTA_EVENTO.listar().get("EVT-2024-MAD").activarVenta();
+        LISTA_EVENTO.listar().get("EVT-2025-MAD").activarVenta();
+        LISTA_EVENTO.listar().get("EVT-2027-MAD").cancelarEvento();
+        LISTA_EVENTO.procesarCierreEventos();
     }
 }

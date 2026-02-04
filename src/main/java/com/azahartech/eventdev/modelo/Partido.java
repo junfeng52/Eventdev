@@ -9,6 +9,8 @@ public class Partido extends Evento{
     private double costeSeguridad;
     private double costeArbitraje;
 
+    private String resultadoMarcador;
+
 
     public Partido(){}
 
@@ -39,6 +41,10 @@ public class Partido extends Evento{
         return this.equipoVisitante;
     }
 
+    public void setResultadoMarcador(String resultadoMarcador) {
+        this.resultadoMarcador = resultadoMarcador;
+    }
+
     @Override
     public String aXML(int indent) {
         String tabs = "\t".repeat(indent);
@@ -49,13 +55,14 @@ public class Partido extends Evento{
                 this.recinto.aXML(indent+1) +
                 tabs + "\t<precio>" + this.precioEntrada + "</precio>\n" +
                 tabs + "\t<benefico>" + this.benefico + "</benefico>\n" +
-                tabs + "\t<equipoLocal>" + this.equipoLocal + "<equipoLocal>\n" +
-                tabs + "\t<equipoVisitante>" + this.equipoVisitante + "<equipoVisitante>\n" +
+                tabs + "\t<equipoLocal>" + this.equipoLocal + "</equipoLocal>\n" +
+                tabs + "\t<equipoVisitante>" + this.equipoVisitante + "</equipoVisitante>\n" +
+                tabs + "\t<resultadoMarcador>" + this.resultadoMarcador + "</resultadoMarcador>\n" +
                 tabs + "</evento>\n";
     }
 
     @Override
     public String aCSV() {
-        return super.aCSV() + String.format(",%s,%s", this.equipoLocal, this.equipoVisitante);
+        return super.aCSV() + String.format(",%s,%s,%s", this.equipoLocal, this.equipoVisitante, this.resultadoMarcador);
     }
 }
