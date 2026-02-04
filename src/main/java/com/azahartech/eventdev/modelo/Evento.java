@@ -13,7 +13,7 @@ public abstract class Evento implements Exportable {
     protected double precioEntrada;
     protected boolean benefico = false;
     private EstadoEvento estado;
-    private TipoEvento tipo;
+    private TipoEvento tipo = TipoEvento.CONCIERTO;
 
     public Evento(){}
 
