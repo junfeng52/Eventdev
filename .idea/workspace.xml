@@ -4,17 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="380ec833-2849-4f66-8416-354ca96996f7" name="Changes" comment="Refactorizacion">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_27_1_26,_18_31_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_27_1_26,_18_58_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_27_1_26__18_31__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_27_1_26,_16_00_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_27_1_26__16_00__Changes_.xml" beforeDir="false" />
+    <list default="true" id="380ec833-2849-4f66-8416-354ca96996f7" name="Changes" comment="Semana 19 session 1">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_27_1_26,_20_35_[Changes]1/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_27_1_26__20_35__Changes_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_28_1_26,_16_02_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_28_1_26__16_02__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_28_1_26,_15_15_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_28_1_26__15_15__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/azahartech/eventdev/modelo/Concierto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/azahartech/eventdev/modelo/Concierto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/azahartech/eventdev/modelo/Evento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/azahartech/eventdev/modelo/Evento.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/azahartech/eventdev/modelo/Partido.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/azahartech/eventdev/modelo/Partido.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/azahartech/eventdev/presentacion/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/azahartech/eventdev/presentacion/App.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -189,7 +187,15 @@
       <option name="project" value="LOCAL" />
       <updated>1769802728339</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Semana 19 session 1">
+      <option name="closed" value="true" />
+      <created>1770148239553</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1770148239553</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -211,6 +217,18 @@
     <MESSAGE value="Cambios" />
     <MESSAGE value="Refactorizacion+&#10;-" />
     <MESSAGE value="Refactorizacion" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactorizacion" />
+    <MESSAGE value="Semana 19 session 1" />
+    <option name="LAST_COMMIT_MESSAGE" value="Semana 19 session 1" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/azahartech/eventdev/presentacion/App.java</url>
+          <line>345</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
