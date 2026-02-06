@@ -40,6 +40,7 @@ public class App {
             System.out.println("7. Enviar mensaje");
             System.out.println("8. Simulacion de pagos");
             System.out.println("9. Prueba evento");
+            System.out.println("10. Prueba estados");
             System.out.println("0. Exit");
             System.out.print("Dime la opcion: ");
             try {

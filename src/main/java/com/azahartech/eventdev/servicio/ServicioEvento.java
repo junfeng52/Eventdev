@@ -118,7 +118,7 @@ public class ServicioEvento {
                 } else {
                     System.out.println("Cerrando evento genérico");
                 }
-                evento.setEstado(EstadoEvento.FINALIZADO);
+                evento.finalizarEvento();
             }
         }
         this.mapaEventos.values().stream().filter(evento -> evento.getEstado() == EstadoEvento.FINALIZADO).forEach(evento -> System.out.println(evento.aCSV()));

@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="380ec833-2849-4f66-8416-354ca96996f7" name="Changes" comment="Semana 19 session 1">
+    <list default="true" id="380ec833-2849-4f66-8416-354ca96996f7" name="Changes" comment="Semana 19 session 2">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/azahartech/eventdev/modelo/Concierto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/azahartech/eventdev/modelo/Concierto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/azahartech/eventdev/modelo/Evento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/azahartech/eventdev/modelo/Evento.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/azahartech/eventdev/modelo/Partido.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/azahartech/eventdev/modelo/Partido.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/azahartech/eventdev/presentacion/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/azahartech/eventdev/presentacion/App.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/azahartech/eventdev/servicio/ServicioEvento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/azahartech/eventdev/servicio/ServicioEvento.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -209,7 +206,15 @@
       <option name="project" value="LOCAL" />
       <updated>1770222356962</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Semana 19 session 2">
+      <option name="closed" value="true" />
+      <created>1770233262657</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1770233262657</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -232,6 +237,7 @@
     <MESSAGE value="Refactorizacion+&#10;-" />
     <MESSAGE value="Refactorizacion" />
     <MESSAGE value="Semana 19 session 1" />
-    <option name="LAST_COMMIT_MESSAGE" value="Semana 19 session 1" />
+    <MESSAGE value="Semana 19 session 2" />
+    <option name="LAST_COMMIT_MESSAGE" value="Semana 19 session 2" />
   </component>
 </project>

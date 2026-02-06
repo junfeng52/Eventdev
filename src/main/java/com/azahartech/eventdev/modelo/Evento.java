@@ -142,9 +142,7 @@ public abstract class Evento implements Exportable {
 
     @Override
     public boolean equals(Object o) {
-        if (o == null || getClass() != o.getClass()) return false;
-        Evento evento = (Evento) o;
-        return Objects.equals(id, evento.id);
+        return o != null && getClass() == o.getClass() && this.id.equals(((Evento) o).consultarId());
     }
 
     @Override
