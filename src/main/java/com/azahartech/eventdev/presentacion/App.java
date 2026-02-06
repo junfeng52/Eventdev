@@ -199,16 +199,16 @@ public class App {
         System.out.println("Dime el nombre de usuario");
         nombre = SCANNER.nextLine();
 
-        System.out.println("Dime el email del usuario");
-        email = SCANNER.nextLine();
-        while (!UtilidadValidacion.esEmailValido(email)){
-            System.out.println("Email no valido.");
-            System.out.println("Dime el email del usuario.");
+        do {
+            System.out.println("Dime el email del usuario");
             email = SCANNER.nextLine();
-        }
+            if(!UtilidadValidacion.esEmailValido(email)){
+                System.out.println("Email no valido.");
+            }
+        } while (!UtilidadValidacion.esEmailValido(email));
 
         System.out.println("Dime si el usuario es Vip (Si/No) Defecto: No");
-        vip = SCANNER.nextLine().toLowerCase() == "si";
+        vip = SCANNER.nextLine().equalsIgnoreCase("si");
 
         LISTA_USUARIOS.registrarUsuario(new Usuario(nombre, email, vip));
     }
@@ -227,13 +227,13 @@ public class App {
         double precioEntrada;
         boolean benefico;
 
-        System.out.println("Dime el id del evento");
-        id = SCANNER.nextLine();
-        while (!UtilidadValidacion.esCodigoEventoValido(id)){
-            System.out.println("Codigo invalido. El codigo tiene que seguir este patron EVT-AAAA-XXX");
+        do {
             System.out.println("Dime el id del evento");
             id = SCANNER.nextLine();
-        }
+            if(!UtilidadValidacion.esCodigoEventoValido(id)){
+                System.out.println("Codigo invalido. El codigo tiene que seguir este patron EVT-AAAA-XXX");
+            }
+        } while (!UtilidadValidacion.esCodigoEventoValido(id));
 
         System.out.println("Dime el nombre del evento");
         nombre = SCANNER.nextLine();
@@ -269,7 +269,7 @@ public class App {
         SCANNER.nextLine();
 
         System.out.println("Dime el evento es benefico (si/no defecto: no)");
-        benefico = SCANNER.nextLine().toLowerCase() == "si";
+        benefico = SCANNER.nextLine().equalsIgnoreCase("si");
 
         //listaEvento.registrarEvento(new Evento(nombre, fecha, recinto, precioEntrada, benefico, id));
     }

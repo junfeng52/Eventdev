@@ -5,9 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="380ec833-2849-4f66-8416-354ca96996f7" name="Changes" comment="Semana 19 session 2">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/azahartech/eventdev/presentacion/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/azahartech/eventdev/presentacion/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/azahartech/eventdev/servicio/ServicioEvento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/azahartech/eventdev/servicio/ServicioEvento.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -230,7 +228,15 @@
       <option name="project" value="LOCAL" />
       <updated>1770404367423</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Semana 19 session 2">
+      <option name="closed" value="true" />
+      <created>1770405407363</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1770405407363</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
