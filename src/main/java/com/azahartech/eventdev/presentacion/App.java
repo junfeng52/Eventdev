@@ -69,27 +69,15 @@ public class App {
                         break;
 
                     case 5:
-                        if (LISTA_EVENTO.isEmpty()){
-                            System.out.println("No hay ningun evento registrado");
-                        }else {
-                            LISTA_EVENTO.generarInformeFinanciero();
-                        }
+                        generarInforme();
                         break;
 
                     case 6:
-                        if (LISTA_EVENTO.isEmpty()){
-                            System.out.println("No hay ningun evento registrado");
-                        }else {
-                            exportarALista();
-                        }
+                        exportarALista();
                         break;
 
                     case 7:
-                        if (LISTA_EVENTO.isEmpty()){
-                            System.out.println("No hay ningun evento registrado");
-                        }else {
-                            enviarNotificacionesATodos();
-                        }
+                        enviarNotificacionesATodos();
                         break;
 
                     case 8:
@@ -118,6 +106,7 @@ public class App {
         SCANNER.close();
     }
 
+    // Opcion 1, 2
     private static void pedirDatos(String tipoEvento){
         Evento eventoFinal;
         Recinto recintoDelEvento = new Recinto();
@@ -201,6 +190,7 @@ public class App {
 
     }
 
+    // Opcion 3
     private static void registarUsuario(){
         String nombre;
         String email;
@@ -284,6 +274,7 @@ public class App {
         //listaEvento.registrarEvento(new Evento(nombre, fecha, recinto, precioEntrada, benefico, id));
     }
 
+    // Opcion 4
     private static void generarDemo(){
         LISTA_EVENTO.registrarEvento(new Concierto("EVT-2025-MAD" ,"evento", LocalDate.now(), new Recinto("recinto", "direccion", 100), 100, "banda", 1000));
         LISTA_EVENTO.registrarEvento(new Concierto("EVT-2027-MAD" ,"evento1", LocalDate.now(), new Recinto("recinto", "direccion", 100), 112, "banda", 1640));
@@ -303,26 +294,38 @@ public class App {
         LISTA_USUARIOS.registrarUsuario(new Usuario("nombref","f@f.com", true));
 
     }
-
-    private static void exportarALista(){
-        ArrayList<Exportable> listaMezclada = new ArrayList<>();
-        listaMezclada.add(new Usuario("nombre","a@a.com", true));
-        listaMezclada.add(new Usuario("nombre2","b@b.com", true, new DetallePago("Mastercard", "20012312312543")));
-
-        listaMezclada.add(new Concierto("EVT-2025-MAD" ,"evento", LocalDate.now(), new Recinto("recinto", "direccion", 100), 100, "banda", 1000));
-        listaMezclada.add(new Partido("EVT-2024-MAD", "evento", LocalDate.now(), new Recinto("recinto", "direccion", 100), 10, "local", "visitante", 2000, 4000));
-        listaMezclada.add(new Tique(new Concierto("EVT-2026-MAD", "evento", LocalDate.now(), new Recinto("recinto", "direccion", 100), 100, "banda", 3000), new Usuario("nombre","a@a.com", true)));
-        //listaMezclada.addAll(LISTA_EVENTO.listar().values());
-        UtilidadExportacion.exportarLista(listaMezclada);
+    // Opcion 5
+    private static void generarInforme(){
+        if (!LISTA_EVENTO.isEmpty()){
+            enviarNotificacionesATodos();
+        }
     }
 
-    private static void enviarNotificacionesATodos(){
-        ArrayList<Notificable> listaNotificable = new ArrayList<>();
-        listaNotificable.add(new Usuario("nombre","a@a.com", true));
-        listaNotificable.add(new Administrador());
+    // Opcion 6
+    private static void exportarALista(){
+        if (!LISTA_EVENTO.isEmpty()) {
+            ArrayList<Exportable> listaMezclada = new ArrayList<>();
+            listaMezclada.add(new Usuario("nombre", "a@a.com", true));
+            listaMezclada.add(new Usuario("nombre2", "b@b.com", true, new DetallePago("Mastercard", "20012312312543")));
 
-        for (Notificable notificable : listaNotificable) {
-            notificable.enviarNotificacion("Hola");
+            listaMezclada.add(new Concierto("EVT-2025-MAD", "evento", LocalDate.now(), new Recinto("recinto", "direccion", 100), 100, "banda", 1000));
+            listaMezclada.add(new Partido("EVT-2024-MAD", "evento", LocalDate.now(), new Recinto("recinto", "direccion", 100), 10, "local", "visitante", 2000, 4000));
+            listaMezclada.add(new Tique(new Concierto("EVT-2026-MAD", "evento", LocalDate.now(), new Recinto("recinto", "direccion", 100), 100, "banda", 3000), new Usuario("nombre", "a@a.com", true)));
+            //listaMezclada.addAll(LISTA_EVENTO.listar().values());
+            UtilidadExportacion.exportarLista(listaMezclada);
+        }
+    }
+
+    // Opcion 7
+    private static void enviarNotificacionesATodos(){
+        if (!LISTA_EVENTO.isEmpty()){
+            ArrayList<Notificable> listaNotificable = new ArrayList<>();
+            listaNotificable.add(new Usuario("nombre","a@a.com", true));
+            listaNotificable.add(new Administrador());
+
+            for (Notificable notificable : listaNotificable) {
+                notificable.enviarNotificacion("Hola");
+            }
         }
     }
 
@@ -330,6 +333,7 @@ public class App {
         Collections.sort(LISTA_USUARIOS.listar());
     }
 
+    // Opcion 8
     private static void compra(){
         ProcesadorPago miTarjeta = new PagoTarjeta("123456789012", "2025-12-31");
         ProcesadorPago miPaypal = new PagoPaypal("alba@azahar.tech");
@@ -343,6 +347,7 @@ public class App {
         LISTA_EVENTO.realizarCompra(usuario, evento, 1, miBizum);
     }
 
+    // Opcion 9
     private static void pruebaRegistrarEvento(){
         Evento eventoPrueba = new Partido("EVT-2024-MAD", "evento", LocalDate.now(), new Recinto("recinto", "direccion", 100), 10, "local", "visitante", 2000, 4000);
         eventoPrueba.registrarVenta();
@@ -353,6 +358,7 @@ public class App {
         eventoPrueba.mostrarInformacion();
     }
 
+    // Opcion 10
     private static void pruebaEstados(){
         generarDemo();
         LISTA_EVENTO.listar().get("EVT-2024-MAD").activarVenta();

@@ -25,6 +25,9 @@ public class ServicioEvento {
     }
 
     public boolean isEmpty(){
+        if(mapaEventos.isEmpty()){
+            System.out.println("No hay ningun evento registrado");
+        }
         return mapaEventos.isEmpty();
     }
 
