@@ -40,12 +40,13 @@ public class DetallePago implements Exportable {
     }
 
     @Override
-    public String aXML(int indent) {
+    public String aXML(int indent, String name) {
         String tabs = "\t".repeat(indent);
-        return tabs + "<detallePago>\n" +
+        name = (name == null) ? "detallePago" : name;
+        return  tabs + "<" + name + ">\n" +
                tabs + "\t<tipoTarjeta>" + this.tipoTarjeta + "</tipoTarjeta>\n" +
                tabs + "\t<numeroTarjeta>" + this.numeroTarjeta + "</numeroTarjeta>\n" +
-               tabs + "</detallePago>\n";
+               tabs + "</" + name + ">\n";
     }
 
     @Override

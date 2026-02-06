@@ -68,19 +68,21 @@ public class Usuario implements Exportable, Notificable, Comparable<Usuario> {
     }
 
     @Override
-    public String aXML(int indent) {
+    public String aXML(int indent, String name) {
         String tabs = "\t".repeat(indent);
-        return tabs + "<usuario>\n" +
+        name = (name == null) ? "usuario" : name;
+        return  tabs + "<" + name + ">\n" +
                tabs + "\t<id>" + this.id + "</id>\n"+
                tabs + "\t<nombre>" + this.nombreUsuario + "<nombre>\n" +
                tabs + "\t<email>" + this.email + "</email>\n" +
+               tabs + "\t<vip>" + this.vip + "</vip>\n" +
                ((this.detallePago != null) ? this.detallePago.aXML(indent + 1) : "") +
-               tabs + "</usuario>\n";
+               tabs + "</" + name + ">\n";
     }
 
     @Override
     public String aCSV() {
-        return String.format("%s,%s,%s", this.nombreUsuario, this.email, this.id);
+        return String.format("%s,%s,%s,%s,%s", this.id, this.nombreUsuario, this.email, this.vip, (this.detallePago != null) ? this.detallePago.aCSV() : "N/A");
     }
 
 

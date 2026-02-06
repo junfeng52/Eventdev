@@ -55,14 +55,15 @@ public class Tique implements Exportable {
      }
 
     @Override
-    public String aXML(int indent) {
+    public String aXML(int indent, String name) {
         String tabs = "\t".repeat(indent);
-        return  tabs + "<tique>\n" +
+        name = (name == null) ? "tique" : name;
+        return  tabs + "<" + name + ">\n" +
                 tabs + "\t<id>" + this.id + "<id>\n" +
                 this.evento.aXML(indent + 1) +
-                this.comprador.aXML(indent + 1) +
+                this.comprador.aXML(indent + 1, "comprador") +
                 tabs + "\t<fecha>" + this.fechaCompra +"</fecha>\n" +
-                tabs + "<tique>\n";
+                tabs + "<" + name + ">\n";
     }
 
     @Override

@@ -147,6 +147,6 @@ public abstract class Evento implements Exportable {
 
     @Override
     public String aCSV() {
-        return String.format("%s,%s,%s,%s,%s,%s", this.id, this.nombre, this.fecha, this.recinto.consultarNombre(), this.precioEntrada, this.benefico);
+        return String.format("%s,%s,%s,%s,%.2f,%s", this.id, this.nombre, this.fecha, this.recinto.consultarNombre(), this.precioEntrada, this.benefico);
     }
 }

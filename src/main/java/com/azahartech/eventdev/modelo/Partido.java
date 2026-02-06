@@ -46,9 +46,10 @@ public class Partido extends Evento{
     }
 
     @Override
-    public String aXML(int indent) {
+    public String aXML(int indent, String name) {
         String tabs = "\t".repeat(indent);
-        return  tabs + "<evento>\n" +
+        name = (name == null) ? "evento" : name;
+        return  tabs + "<" + name + ">\n" +
                 tabs + "\t<id>" + this.id + "<id>\n" +
                 tabs + "\t<nombre>" + this.nombre + "</nombre>\n" +
                 tabs + "\t<fecha>" + this.fecha + "</fecha>\n" +
@@ -57,12 +58,14 @@ public class Partido extends Evento{
                 tabs + "\t<benefico>" + this.benefico + "</benefico>\n" +
                 tabs + "\t<equipoLocal>" + this.equipoLocal + "</equipoLocal>\n" +
                 tabs + "\t<equipoVisitante>" + this.equipoVisitante + "</equipoVisitante>\n" +
-                tabs + "\t<resultadoMarcador>" + this.resultadoMarcador + "</resultadoMarcador>\n" +
-                tabs + "</evento>\n";
+                tabs + "\t<costeSeguridad>" + this.costeSeguridad + "</costeSeguridad>\n" +
+                tabs + "\t<costeArbitraje>" + this.costeArbitraje + "</costeArbitraje>\n" +
+                ((this.resultadoMarcador != null) ? tabs + "\t<resultadoMarcador>" + this.resultadoMarcador + "</resultadoMarcador>\n": "") +
+                tabs + "</" + name + ">\n";
     }
 
     @Override
     public String aCSV() {
-        return super.aCSV() + String.format(",%s,%s,%s", this.equipoLocal, this.equipoVisitante, this.resultadoMarcador);
+        return super.aCSV() + String.format(",%s,%s,%.2f,%.2f,%s", this.equipoLocal, this.equipoVisitante, this.costeSeguridad, this.costeArbitraje, (this.resultadoMarcador != null) ? this.resultadoMarcador : "N/A");
     }
 }

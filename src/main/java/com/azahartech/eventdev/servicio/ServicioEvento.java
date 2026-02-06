@@ -99,8 +99,8 @@ public class ServicioEvento {
     public void generarInformeFinanciero(){
         for (Evento evento : mapaEventos.values()) {
             System.out.printf("Evento:\t %s\n", evento.consultarNombre());
-            System.out.printf("\tCoste operativo: %d EUR\n", evento.calcularCosteOperativo());
-            System.out.printf("\tPrecio sugerido: %d EUR\n", evento.calcularPrecioVentaRecomendado());
+            System.out.printf("\tCoste operativo: %.2f EUR\n", evento.calcularCosteOperativo());
+            System.out.printf("\tPrecio sugerido: %.2f EUR\n", evento.calcularPrecioVentaRecomendado());
         }
     }
 

@@ -39,9 +39,10 @@ public class Concierto extends Evento{
     }
 
     @Override
-    public String aXML(int indent) {
+    public String aXML(int indent, String name) {
         String tabs = "\t".repeat(indent);
-        return tabs + "<evento>\n" +
+        name = (name == null) ? "evento" : name;
+        return  tabs + "<" + name + ">\n" +
                 tabs + "\t<id>" + this.id + "<id>\n" +
                 tabs + "\t<nombre>" + this.nombre + "</nombre>\n" +
                 tabs + "\t<fecha>" + this.fecha + "</fecha>\n" +
@@ -49,12 +50,13 @@ public class Concierto extends Evento{
                 tabs + "\t<precio>" + this.precioEntrada + "</precio>\n" +
                 tabs + "\t<benefico>" + this.benefico + "</benefico>\n" +
                 tabs + "\t<bandaPrincipal>" + this.bandaPrincipal + "</bandaPrincipal>\n" +
-                tabs + "\t<listaCanciones>" + this.listaCanciones + "</listaCanciones>\n" +
-                tabs + "</evento>\n";
+                tabs + "\t<costeMontaje>" + this.costeMontaje + "</costeMontaje>\n" +
+                ((this.listaCanciones != null) ? tabs + "\t<listaCanciones>" + this.listaCanciones + "</listaCanciones>\n" : "") +
+                tabs + "</" + name + ">\n";
     }
 
     @Override
     public String aCSV() {
-        return super.aCSV() + String.format(",%s,%s", this.bandaPrincipal, this.listaCanciones);
+        return super.aCSV() + String.format(",%s,%.2f, %s", this.bandaPrincipal, this.costeMontaje, (this.listaCanciones != null) ? this.listaCanciones : "N/A");
     }
 }

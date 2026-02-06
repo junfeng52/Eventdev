@@ -17,6 +17,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 import java.util.Scanner;
 
 public class App {
@@ -108,7 +109,7 @@ public class App {
                         break;
                 }
             } catch (RuntimeException e) {
-                System.out.println("Opcion no valida. ERROR" + e);
+                System.out.println("Opcion no valida. ERROR: " + e);
                 SCANNER.nextLine();
             }
 
@@ -311,6 +312,7 @@ public class App {
         listaMezclada.add(new Concierto("EVT-2025-MAD" ,"evento", LocalDate.now(), new Recinto("recinto", "direccion", 100), 100, "banda", 1000));
         listaMezclada.add(new Partido("EVT-2024-MAD", "evento", LocalDate.now(), new Recinto("recinto", "direccion", 100), 10, "local", "visitante", 2000, 4000));
         listaMezclada.add(new Tique(new Concierto("EVT-2026-MAD", "evento", LocalDate.now(), new Recinto("recinto", "direccion", 100), 100, "banda", 3000), new Usuario("nombre","a@a.com", true)));
+        //listaMezclada.addAll(LISTA_EVENTO.listar().values());
         UtilidadExportacion.exportarLista(listaMezclada);
     }
 
